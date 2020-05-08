@@ -42,11 +42,9 @@ public class PlayerScript : MonoBehaviour
 
     public void ForceRepair()
     {
-        //while(health <= 3.5)
-        //{
-        //    inRepair = true;
-        //}
-        inRepair = false;
+        //stop firing
+        if(health >= 3.5)
+            inRepair = false;
     }
 
     IEnumerator flashRed()
@@ -56,5 +54,14 @@ public class PlayerScript : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Meteor")
+        {
+            health = 2;
+            inRepair = true;
+            ForceRepair();
+        }
+    }
 
 }

@@ -60,9 +60,14 @@ public class MeteorMovement : MonoBehaviour
         }
     }
     
-    void onCollisionEnter2D(Collider col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.tag == "Player")
+        if(col.gameObject.tag == "Player")
+        {
+            
+        }
+
+        else if (col.gameObject.tag == "Ship")
         {
             meteorSpeed *= -1.0f;
         }
