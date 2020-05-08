@@ -6,11 +6,11 @@ public class SwarmMovement : MonoBehaviour
 {
 
     private float movementDirX;
+    public float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        //movementDirX = Random.RandomRange(0.0f, )
     }
 
     // Update is called once per frame
