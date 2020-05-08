@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float boundsDown = -4.45f;
     Rigidbody2D rb;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        CheckBounds();
+       // CheckBounds();
     }
 
     void CheckInput()

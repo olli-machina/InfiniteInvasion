@@ -22,7 +22,6 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             health += 0.5f;  
-            Debug.Log("UP");
         }
 
         if (health > 10)
