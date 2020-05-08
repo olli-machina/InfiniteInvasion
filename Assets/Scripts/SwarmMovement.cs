@@ -19,7 +19,7 @@ public class SwarmMovement : MonoBehaviour
         ship3 = GameObject.Find("Ship3");
         ship4 = GameObject.Find("Ship4");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        target = Random.Range(0, 4);
+        target = Random.Range(0, 3);
     }
 
     // Update is called once per frame

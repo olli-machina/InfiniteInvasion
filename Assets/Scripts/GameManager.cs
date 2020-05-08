@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
                     spawnPoint10 = new Vector3(1.08f, 2.12f, 0.0f);
 
 
+
     // Start is called before the first frame update
     void Start()
     {
