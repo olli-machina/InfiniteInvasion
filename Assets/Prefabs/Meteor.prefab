@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5221602967104861493}
   - component: {fileID: 5221602967104861492}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94137fe9c22c07f49b45afb09cf0c142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidSpeed: 5
+  meteorSpeed: 5
 --- !u!58 &5221602967104861493
 CircleCollider2D:
   m_ObjectHideFlags: 0

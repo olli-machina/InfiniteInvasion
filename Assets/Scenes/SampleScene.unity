@@ -847,7 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa8364220461904886287857dacf099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Meteor: {fileID: 0}
+  Meteor: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7, type: 3}
 --- !u!4 &1764697849
 Transform:
   m_ObjectHideFlags: 0
