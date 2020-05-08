@@ -28,7 +28,6 @@ public class HealthBar : MonoBehaviour
 
     public bool decreaseValue(float takeHealth)
     {
-        Debug.Log("Decrease: " + takeHealth);
         targetProgress = takeHealth;
         if (targetProgress <= 0)
             return true;

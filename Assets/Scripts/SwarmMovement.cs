@@ -19,7 +19,7 @@ public class SwarmMovement : MonoBehaviour
         ship3 = GameObject.Find("Ship3");
         ship4 = GameObject.Find("Ship4");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        target = Random.Range(0,1);
+        target = Random.Range(0, 4);
     }
 
     // Update is called once per frame
@@ -46,7 +46,6 @@ public class SwarmMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("HIt");
         if(col.tag == "Player")
         {
             player.GetComponent<PlayerScript>().DamageHealth(1);
