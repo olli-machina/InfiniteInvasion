@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidMovement : MonoBehaviour
+public class MeteorMovement : MonoBehaviour
 {
 
     private float xMove, yMove;
-    public float asteroidSpeed;
+    public float meteorSpeed;
     Rigidbody2D rb;
     GameManager gameManager;
 
@@ -22,14 +22,14 @@ public class AsteroidMovement : MonoBehaviour
     public void CheckDirection()
     {
         if(gameObject.transform.position.x > 0.0f)
-            xMove = (Random.Range(0.5f, -5.0f)) * asteroidSpeed;
+            xMove = (Random.Range(0.5f, -5.0f)) * meteorSpeed;
         else if(gameObject.transform.position.x < 0.0f)
-            xMove = (Random.Range(5.0f, 0.0f)) * asteroidSpeed;
+            xMove = (Random.Range(5.0f, 0.0f)) * meteorSpeed;
 
         if(gameObject.transform.position.y > 33.0f)
-            yMove = (Random.Range(0.5f, -5.0f)) * asteroidSpeed;
+            yMove = (Random.Range(0.5f, -5.0f)) * meteorSpeed;
         else if (gameObject.transform.position.y < 33.0f)
-            yMove = (Random.Range(5.0f, 0.0f)) * asteroidSpeed;
+            yMove = (Random.Range(5.0f, 0.0f)) * meteorSpeed;
     }
 
     // Update is called once per frame
@@ -49,14 +49,14 @@ public class AsteroidMovement : MonoBehaviour
     {
         if (gameObject.transform.position.x > 38.0f || gameObject.transform.position.x < -42.0)
         {
-            gameManager.SpawnAsteroid();
+            gameManager.SpawnMeteor();
             Destroy(gameObject);
         }
 
 
         if (gameObject.transform.position.y > 32.0f || gameObject.transform.position.y < -32.0)
         {
-            gameManager.SpawnAsteroid();
+            gameManager.SpawnMeteor();
             Destroy(gameObject);
         }
     }
@@ -65,7 +65,7 @@ public class AsteroidMovement : MonoBehaviour
     {
         if(col.tag == "Player")
         {
-            asteroidSpeed *= -1.0f;
+            meteorSpeed *= -1.0f;
         }
     }
 }

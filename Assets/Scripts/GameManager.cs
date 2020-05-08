@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject Player;
-    public GameObject Asteroid;//, SwarmMember;
+    public GameObject Meteor;//, SwarmMember;
     Vector3 position;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SpawnAsteroid()
+    public void SpawnMeteor()
     {
         var rL = Random.Range(0, 2);
         if(rL == 0)
@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
         else
             position = new Vector3(Random.Range(32.0f, 37.0f), Random.Range(-31.0f, 31.0f), 0);
 
-        Instantiate(Asteroid, position, Quaternion.identity);
+        Instantiate(Meteor, position, Quaternion.identity);
     }
 }

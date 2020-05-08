@@ -320,6 +320,7 @@ MonoBehaviour:
   boundsLeft: -8.5
   boundsRight: 8.5
   boundsUp: 4.5
+  boundsDown: -4.45
 --- !u!212 &702865892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -415,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid (3)
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861499, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
@@ -474,6 +475,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa22e33a9d708f459a9f0bef0c358a7, type: 3}
+--- !u!1 &1011733562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011733564}
+  - component: {fileID: 1011733563}
+  m_Layer: 0
+  m_Name: Portal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1011733563
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011733562}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 0a37030e23a9c404686fed90c7419ed6, type: 3}
+  m_Color: {r: 1, g: 0.7273448, b: 0, a: 0.2784314}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1011733564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011733562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.004538536, y: -0.13368517, z: 0}
+  m_LocalScale: {x: 6.434903, y: 6.434903, z: 6.434903}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1327108179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -484,7 +566,7 @@ PrefabInstance:
     - target: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid (1)
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861499, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
@@ -553,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid (4)
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861499, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
@@ -765,8 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa8364220461904886287857dacf099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Asteroid: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
-    type: 3}
+  Meteor: {fileID: 0}
 --- !u!4 &1764697849
 Transform:
   m_ObjectHideFlags: 0
@@ -791,7 +872,7 @@ PrefabInstance:
     - target: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid (2)
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861499, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
@@ -860,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 5221602967104861496, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Name
-      value: Asteroid
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861499, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}

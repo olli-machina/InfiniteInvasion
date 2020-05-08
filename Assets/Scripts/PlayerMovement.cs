@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float boundsLeft = -8.5f;
     public float boundsRight = 8.5f;
     public float boundsUp = -4.5f;
-    private float boundsDown = -4.45f;
+    public float boundsDown = -4.45f;
     Rigidbody2D rb;
 
 
