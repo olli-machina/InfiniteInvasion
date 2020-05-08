@@ -16,7 +16,6 @@ public class MeteorMovement : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         CheckDirection();
-        Debug.Log(xMove + " " + yMove);
     }
 
     public void CheckDirection()
