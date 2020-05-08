@@ -42,6 +42,15 @@ public class SwarmMovement : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
+
+
+        SpreadOut();
+    }
+
+    public void SpreadOut()
+    {
+        
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -54,6 +63,10 @@ public class SwarmMovement : MonoBehaviour
         else if (col.tag == "Bullet")
         {
 
+        }
+        else if (col.tag == "Meteor")
+        {
+            Destroy(gameObject);
         }
     }
 }
