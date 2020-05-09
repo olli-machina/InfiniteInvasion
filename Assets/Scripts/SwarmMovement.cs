@@ -22,6 +22,7 @@ public class SwarmMovement : MonoBehaviour
         cameraShake = GameObject.Find("Main Camera");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         target = Random.Range(0, 3);
+        ship = gameManager.randShipNumber;
     }
 
     // Update is called once per frame
@@ -35,21 +36,39 @@ public class SwarmMovement : MonoBehaviour
         }
         else //ship is target
         {
-            ship = gameManager.randShipNumber;
+
             if (ship == 0)
-                targetPosition = ship1.transform.position;
+            {
+                if (ship1 != null)
+                    targetPosition = ship1.transform.position;
+                else
+                    ship++;
+            }
             if (ship == 1)
-                targetPosition = ship2.transform.position;
+            {
+                if (ship2 != null)
+                    targetPosition = ship2.transform.position;
+                else
+                    ship++;
+            }
             if (ship == 2)
-                targetPosition = ship3.transform.position;
+            {
+                if (ship3 != null)
+                    targetPosition = ship3.transform.position;
+                else
+                    ship++;
+
+            }
             if (ship == 3)
-                targetPosition = ship4.transform.position;
+            {
+                if (ship4 != null)
+                    targetPosition = ship4.transform.position;
+                else
+                    ship = 0;
+            }
         }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-
-
-
         SpreadOut();
     }
 
@@ -88,8 +107,8 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Ship")
         {
-            ship1.GetComponent<ColonyShipScript>().health -= 1;
-            ship1.GetComponent<ColonyShipScript>().UpdateHealth();
+            col.GetComponent<ColonyShipScript>().health -= 1;
+            col.GetComponent<ColonyShipScript>().UpdateHealth();
             Destroy(gameObject);
         }
     }

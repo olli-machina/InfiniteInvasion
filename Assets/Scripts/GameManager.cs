@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         else
             randShipDuration = 30f;
 
-        randShipNumber = Random.Range(0, 4);
+        randShipNumber = 0;
     }
 
     // Update is called once per frame
@@ -83,6 +83,10 @@ public class GameManager : MonoBehaviour
 
     //public int SetShip()
     //{
+    //    if(randShipNumber == 0)
+    //    {
+    //        if()
+    //    }
 
     //    if (shipCounter > 100)
     //    {
