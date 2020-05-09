@@ -28,7 +28,10 @@ public class SwarmMovement : MonoBehaviour
     {
         float step = moveSpeed * Time.deltaTime;
         if (target == 0) //player is target
+        {
             targetPosition = player.transform.position;
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        }
         else //ship is target
         {
             ship = gameManager.SetShip();
@@ -65,6 +68,15 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Bullet")
         {
+            if (target == 0)
+            {
+                gameManager.ChangeScore(25);
+            }
+            else
+            {
+                gameManager.ChangeScore(10);
+            }
+
             Destroy(gameObject);
             Destroy(col);
         }
