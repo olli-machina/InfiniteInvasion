@@ -38,7 +38,6 @@ public class PlayerScript : MonoBehaviour
                 healthWedges[(int)health].SetActive(true);
                 damageWedges[(int)health].SetActive(false);
                 health += 1f;
-                gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
             else
             {
