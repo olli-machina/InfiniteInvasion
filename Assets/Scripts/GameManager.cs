@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int shipCounter = 0;
     public int score;
     private float spawnTimer = 0.0f;
+    public Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
                     spawnPoint2 = new Vector3(0.58f, -2.74f, 0.0f),
                     spawnPoint3 = new Vector3(0.97f, 0.23f, 0.0f),
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
     public void ChangeScore(int addPoints)
     {
         score += addPoints;
+
+        scoreText.text = score.ToString();
     }
 
     public void SpawnMeteor()
