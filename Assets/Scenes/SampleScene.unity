@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 268672867}
   - component: {fileID: 268672869}
   - component: {fileID: 268672870}
+  - component: {fileID: 268672871}
   m_Layer: 0
   m_Name: ORION
   m_TagString: Ship
@@ -249,6 +250,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!50 &268672871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268672866}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!4 &380478771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3345343368937149105, guid: 4e4ba82210d772a428e8f237b8cb1653,
@@ -511,6 +533,7 @@ GameObject:
   - component: {fileID: 506537335}
   - component: {fileID: 506537334}
   - component: {fileID: 506537336}
+  - component: {fileID: 506537338}
   - component: {fileID: 506537337}
   m_Layer: 0
   m_Name: GOLIATH
@@ -622,6 +645,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!50 &506537338
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506537333}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &510393996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3160,7 @@ GameObject:
   - component: {fileID: 1985914976}
   - component: {fileID: 1985914978}
   - component: {fileID: 1985914979}
+  - component: {fileID: 1985914980}
   m_Layer: 0
   m_Name: JUNO
   m_TagString: Ship
@@ -3226,6 +3271,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!50 &1985914980
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985914975}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1001 &1993364453
 PrefabInstance:
   m_ObjectHideFlags: 0
