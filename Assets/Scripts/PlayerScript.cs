@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") || Input.GetButtonDown("Fire1"))
         {
             if (inRepair)
             {

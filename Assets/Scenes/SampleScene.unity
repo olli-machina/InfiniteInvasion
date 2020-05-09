@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  turnSpeed: 5
+  turnSpeed: 10
 --- !u!212 &702865892
 SpriteRenderer:
   m_ObjectHideFlags: 0
