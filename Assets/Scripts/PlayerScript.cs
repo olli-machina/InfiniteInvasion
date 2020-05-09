@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 CheckWeapon();
-                GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
+                //GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
             }
         }
 
@@ -124,11 +124,34 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    IEnumerator PowerUpTimer(float time, bool powerUp)
+    IEnumerator PowerUpTimer(float time, int powerUp)
     {
-        powerUp = true;
+        switch(powerUp)
+        {
+            case 0:
+                doubleShot = true;
+                break;
+            case 1:
+                shotgun = true;
+                break;
+            case 2:
+                fullDirectional = true;
+                break;
+        }
+        Debug.Log(doubleShot);
         yield return new WaitForSeconds(time);
-        powerUp = false;
+        switch (powerUp)
+        {
+            case 0:
+                doubleShot = false;
+                break;
+            case 1:
+                shotgun = false;
+                break;
+            case 2:
+                fullDirectional = false;
+                break;
+        }
         hasPowerUp = false;
     }
 
@@ -136,7 +159,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (doubleShot)
         {
-            Debug.Log("DoubleShot");
+            GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
+            GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
         }
         else if (shotgun)
         {
@@ -160,13 +184,13 @@ public class PlayerScript : MonoBehaviour
             switch (name)
             {
                 case "DoubleShot":
-                    StartCoroutine(PowerUpTimer(doubleShotTimer, doubleShot));
+                    StartCoroutine(PowerUpTimer(doubleShotTimer, 0));
                     break;
                 case "Shotgun":
-                    StartCoroutine(PowerUpTimer(shotgunTimer, shotgun));
+                    StartCoroutine(PowerUpTimer(shotgunTimer, 1));
                     break;
                 case "FullDirectional":
-                    StartCoroutine(PowerUpTimer(fullDirectionalTimer, fullDirectional));
+                    StartCoroutine(PowerUpTimer(fullDirectionalTimer, 2));
                     break;
 
             }

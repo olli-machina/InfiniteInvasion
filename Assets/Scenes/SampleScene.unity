@@ -2081,7 +2081,7 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   shotgunTimer: 2
-  doubleShotTimer: 2
+  doubleShotTimer: 5
   fullDirectionalTimer: 2
   healthWedges:
   - {fileID: 913883385}
