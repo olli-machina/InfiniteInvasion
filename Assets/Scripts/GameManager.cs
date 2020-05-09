@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager singleton;
+
     private GameObject Player;
     public GameObject Meteor, SwarmMember;
     Vector3 position;
@@ -23,7 +25,19 @@ public class GameManager : MonoBehaviour
                     spawnPoint9 = new Vector3(-1.22f, 2.03f, 0.0f),
                     spawnPoint10 = new Vector3(1.08f, 2.12f, 0.0f);
 
+    void Awake()
+    {
+        if (singleton == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            singleton = this;
+        }
 
+        else if(singleton != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

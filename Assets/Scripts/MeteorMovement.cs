@@ -9,12 +9,10 @@ public class MeteorMovement : MonoBehaviour
     private bool flipped = false;
     public float meteorSpeed;
     Rigidbody2D rb;
-    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         CheckDirection();
     }
@@ -58,14 +56,14 @@ public class MeteorMovement : MonoBehaviour
     {
         if (gameObject.transform.position.x > 38.0f || gameObject.transform.position.x < -42.0)
         {
-            gameManager.SpawnMeteor();
+            GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);
         }
 
 
         if (gameObject.transform.position.y > 32.0f || gameObject.transform.position.y < -32.0)
         {
-            gameManager.SpawnMeteor();
+            GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);
         }
     }

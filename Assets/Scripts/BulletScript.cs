@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    private GameManager gameManager;
     public int hitCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
     }
 

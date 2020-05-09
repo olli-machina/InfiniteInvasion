@@ -7,7 +7,6 @@ public class SwarmMovement : MonoBehaviour
     public float moveSpeed;
     private int target, ship;
     private Vector3 targetPosition;
-    private GameManager gameManager;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;
 
@@ -20,9 +19,8 @@ public class SwarmMovement : MonoBehaviour
         ship3 = GameObject.Find("JUNO");
         ship4 = GameObject.Find("ORION");
         cameraShake = GameObject.Find("Main Camera");
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         target = Random.Range(0, 3);
-        ship = gameManager.randShipNumber;
+        ship = GameManager.singleton.randShipNumber;
     }
 
     // Update is called once per frame
@@ -90,11 +88,11 @@ public class SwarmMovement : MonoBehaviour
         {
             if (target == 0)
             {
-                gameManager.ChangeScore(25);
+                GameManager.singleton.ChangeScore(25);
             }
             else
             {
-                gameManager.ChangeScore(10);
+                GameManager.singleton.ChangeScore(10);
             }
 
             ShowPoints();
