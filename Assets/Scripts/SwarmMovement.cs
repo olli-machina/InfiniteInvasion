@@ -9,6 +9,7 @@ public class SwarmMovement : MonoBehaviour
     private Vector3 targetPosition;
     private GameManager gameManager;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
+    public GameObject attackPoints, basicPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +78,7 @@ public class SwarmMovement : MonoBehaviour
                 gameManager.ChangeScore(10);
             }
 
+            ShowPoints();
             Destroy(gameObject);
             Destroy(col);
         }
@@ -89,6 +91,18 @@ public class SwarmMovement : MonoBehaviour
             ship1.GetComponent<ColonyShipScript>().health -= 1;
             ship1.GetComponent<ColonyShipScript>().UpdateHealth();
             Destroy(gameObject);
+        }
+    }
+
+    void ShowPoints()
+    {
+        if (target == 0)
+        {
+            Instantiate(attackPoints, gameObject.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(basicPoints, gameObject.transform.position, Quaternion.identity);
         }
     }
 }
