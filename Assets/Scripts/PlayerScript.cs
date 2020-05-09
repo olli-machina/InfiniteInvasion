@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject healthOrb;
     public GameObject damageOrb;
     public bool inRepair = false;
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     private GameObject cameraShake;
     Transform fireLocation;
 
@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                Instantiate(bullet, fireLocation.position, fireLocation.rotation);
+                GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
             }
         }
 

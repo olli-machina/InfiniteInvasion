@@ -65,7 +65,8 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Bullet")
         {
-
+            Destroy(gameObject);
+            Destroy(col);
         }
         else if (col.tag == "Meteor")
         {
