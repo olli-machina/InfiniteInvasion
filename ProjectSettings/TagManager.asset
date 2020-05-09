@@ -9,6 +9,7 @@ TagManager:
   - Meteor
   - Ship
   - Bounds
+  - PowerUp
   layers:
   - Default
   - TransparentFX

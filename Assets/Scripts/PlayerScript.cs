@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float health = 10, maxHealth = 10;
+    public float health = 10, maxHealth = 10,
+        shotgunTimer, doubleShotTimer, fullDirectionalTimer;
     public GameObject[] healthWedges;
     public GameObject[] damageWedges;
     public GameObject healthOrb;
     public GameObject damageOrb;
-    public bool inRepair = false;
+    public bool inRepair = false,
+        doubleShot, shotgun, fullDirectional;
+    public bool hasPowerUp = false;
     public GameObject bulletPrefab;
     private GameObject cameraShake;
     Transform fireLocation;
@@ -40,6 +43,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
+                CheckWeapon();
                 GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
             }
         }
@@ -120,4 +124,56 @@ public class PlayerScript : MonoBehaviour
             ForceRepair();
         }
     }
+
+    IEnumerator PowerUpTimer(float time, bool powerUp)
+    {
+        powerUp = true;
+        yield return new WaitForSeconds(time);
+        powerUp = false;
+        hasPowerUp = false;
+    }
+
+    public void CheckWeapon()
+    {
+        if (doubleShot)
+        {
+            Debug.Log("DoubleShot");
+        }
+        else if (shotgun)
+        {
+            Debug.Log("Shotgun");
+        }
+        else if (fullDirectional)
+        {
+            Debug.Log("FD");
+        }
+        else
+        {
+            GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
+        }
+    }
+
+    public void ActivatePowerUp(string name)
+    {
+        if (!hasPowerUp)
+        {
+            hasPowerUp = true;
+            switch (name)
+            {
+                case "DoubleShot":
+                    StartCoroutine(PowerUpTimer(doubleShotTimer, doubleShot));
+                    break;
+                case "Shotgun":
+                    StartCoroutine(PowerUpTimer(shotgunTimer, shotgun));
+                    break;
+                case "FullDirectional":
+                    StartCoroutine(PowerUpTimer(fullDirectionalTimer, fullDirectional));
+                    break;
+
+            }
+        }
+    }
+
 }
+
+
