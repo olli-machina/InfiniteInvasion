@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     float xMove = 10f;
-    public float speed;
+    public float speed, turnSpeed;
     float yMove = 10f;
     public float boundsLeft = -8.5f;
     public float boundsRight = 8.5f;
@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 newVelocity = new Vector2(xMove, yMove);
         rb.velocity = newVelocity;
+
+        if (newVelocity != Vector2.zero)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, newVelocity), Time.fixedDeltaTime * turnSpeed);
     }
 
     void CheckBounds()

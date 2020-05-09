@@ -40,14 +40,16 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                //Instantiate(bullet, fireLocation.position, fireLocation.rotation);
-                gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                Instantiate(bullet, fireLocation.position, fireLocation.rotation);
             }
         }
 
         if (Input.GetKeyUp("space"))
+        {
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             if (inRepair)
                 health += 0.5f;
+        }
 
         if (health > 10)
         {
