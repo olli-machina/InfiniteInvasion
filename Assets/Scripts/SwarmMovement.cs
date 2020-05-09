@@ -59,7 +59,6 @@ public class SwarmMovement : MonoBehaviour
         Debug.Log(col.tag);
         if(col.tag == "Player")
         {
-            Debug.Log("Player Collision");
             player.GetComponent<PlayerScript>().DamageHealth(1);
             cameraShake.GetComponent<CameraShake>().Shake();
             Destroy(gameObject);
@@ -70,12 +69,10 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Meteor")
         {
-            Debug.Log("Meteor Collision");
             Destroy(gameObject);
         }
         else if (col.tag == "Ship")
         {
-            Debug.Log("Ship Collision");
             ship1.GetComponent<ColonyShipScript>().health -= 1;
             ship1.GetComponent<ColonyShipScript>().UpdateHealth();
             Destroy(gameObject);
