@@ -77,6 +77,7 @@ public class SwarmMovement : MonoBehaviour
         {
             Debug.Log("Ship Collision");
             ship1.GetComponent<ColonyShipScript>().health -= 1;
+            ship1.GetComponent<ColonyShipScript>().UpdateHealth();
             Destroy(gameObject);
         }
     }

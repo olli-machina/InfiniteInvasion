@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ColonyShipScript : MonoBehaviour
 {
-    public int health = 10;
+    public float health = 10;
+    public float maxHealth = 10;
+    public HealthBar healthUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +21,12 @@ public class ColonyShipScript : MonoBehaviour
         {
             //Destroy(gameObject);
         }
+
+        
+    }
+
+    public void UpdateHealth()
+    {
+        healthUI.decreaseValue(health / maxHealth);
     }
 }
