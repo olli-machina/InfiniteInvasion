@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject Meteor, SwarmMember;
     Vector3 position;
     private int shipCounter = 0;
-    public int score;
-    private float spawnTimer = 0.0f;
+    public int score, randShipNumber = 0, randomTime;
+    private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f;
     public Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
                     spawnPoint2 = new Vector3(0.58f, -2.74f, 0.0f),
@@ -29,16 +29,35 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
+        randomTime = Random.Range(0, 2);
+        if(randomTime == 0)
+            randShipDuration = 60f;
+        else
+            randShipDuration = 30f;
+
+        randShipNumber = Random.Range(0, 4);
     }
 
     // Update is called once per frame
     void Update()
     {
         spawnTimer += Time.deltaTime;
+        shipTimer += Time.deltaTime;
         if(spawnTimer >= 5.0f)
         {
             SpawnSwarm();
             spawnTimer = 0.0f;
+        }
+        if(shipTimer >= randShipDuration)
+        {
+            randomTime = Random.Range(0, 2);
+            if (randomTime == 0)
+                randShipDuration = 15.0f;
+            else
+                randShipDuration = 30.0f;
+
+            randShipNumber = Random.Range(0, 4);
+            shipTimer = 0.0f;
         }
 
 
@@ -62,20 +81,21 @@ public class GameManager : MonoBehaviour
         Instantiate(Meteor, position, Quaternion.identity);
     }
 
-    public int SetShip()
-    {
-        if (shipCounter > 100)
-        {
-            shipCounter = 0;
-            return 4;
-        }
-        else if (shipCounter > 75)
-            return 3;
-        else if (shipCounter > 50)
-            return 2;
-        else
-            return 1;
-    }
+    //public int SetShip()
+    //{
+
+    //    if (shipCounter > 100)
+    //    {
+    //        shipCounter = 0;
+    //        return 4;
+    //    }
+    //    else if (shipCounter > 75)
+    //        return 3;
+    //    else if (shipCounter > 50)
+    //        return 2;
+    //    else
+    //        return 1;
+    //}
 
     public void SpawnSwarm()
     {

@@ -157,20 +157,28 @@ public class PlayerScript : MonoBehaviour
 
     public void CheckWeapon()
     {
+        Quaternion newRotation = Quaternion.identity;
         if (doubleShot)
         {
+            Debug.Log(fireLocation.rotation);
             GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
             GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
         }
         else if (shotgun)
         {
-            Debug.Log("Shotgun");
+            Debug.Log(gameObject.transform.rotation);
+
             GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
+            bullet.transform.Rotate(0f, 0f, -5.0f);
+
             GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
-            GameObject tbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 1.0f), (fireLocation.position.y), fireLocation.position.z), 
-                Quaternion.Euler(fireLocation.rotation.x, fireLocation.rotation.y, (fireLocation.rotation.z - 10.0f))) as GameObject;
-            GameObject qbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 1.0f), (fireLocation.position.y), fireLocation.position.z),
-                Quaternion.Euler(fireLocation.rotation.x, fireLocation.rotation.y, (fireLocation.rotation.z + 10.0f))) as GameObject;
+            dbullet.transform.Rotate(0f, 0f, 5.0f);
+
+            GameObject tbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 1.5f), (fireLocation.position.y), fireLocation.position.z), fireLocation.rotation) as GameObject;
+            tbullet.transform.Rotate(0f, 0f, -10.0f);
+
+            GameObject qbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 1.5f), (fireLocation.position.y), fireLocation.position.z), fireLocation.rotation) as GameObject;
+            qbullet.transform.Rotate(0f, 0f, 10.0f);
         }
         else if (fullDirectional)
         {

@@ -35,14 +35,14 @@ public class SwarmMovement : MonoBehaviour
         }
         else //ship is target
         {
-            ship = gameManager.SetShip();
-            if (ship == 1)
+            ship = gameManager.randShipNumber;
+            if (ship == 0)
                 targetPosition = ship1.transform.position;
-            if (ship == 2)
+            if (ship == 1)
                 targetPosition = ship2.transform.position;
-            if (ship == 3)
+            if (ship == 2)
                 targetPosition = ship3.transform.position;
-            if (ship == 4)
+            if (ship == 3)
                 targetPosition = ship4.transform.position;
         }
 

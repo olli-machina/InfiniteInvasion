@@ -1438,6 +1438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510393997}
+  - component: {fileID: 510393998}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -1453,12 +1454,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510393996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.5, z: -5.7900877}
+  m_LocalPosition: {x: 0.01, y: 3.67, z: -5.7900877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 702865893}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510393998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510393996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4c213031231194ba6c7ea7d7a6fe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &511694321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4163,7 +4176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1209298749
 Transform:
   m_ObjectHideFlags: 0
@@ -10954,6 +10967,8 @@ MonoBehaviour:
   SwarmMember: {fileID: 3345343368937149005, guid: 4e4ba82210d772a428e8f237b8cb1653,
     type: 3}
   score: 0
+  randShipNumber: 0
+  randomTime: 0
   scoreText: {fileID: 39474671}
   spawnPoint1: {x: 1.9, y: -1.72, z: 0}
   spawnPoint2: {x: 0.58, y: -2.74, z: 0}
