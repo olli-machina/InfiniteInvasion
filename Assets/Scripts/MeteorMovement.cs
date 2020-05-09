@@ -74,7 +74,7 @@ public class MeteorMovement : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            
+            Destroy(gameObject);
         }
 
         else if (col.gameObject.tag == "Ship")

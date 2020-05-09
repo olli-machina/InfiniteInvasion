@@ -47,34 +47,6 @@ public class PlayerMovement : MonoBehaviour
             //rb.MoveRotation(Quaternion.LookRotation(Vector3.forward, newVelocity));
     }
 
-    //void CheckBounds()
-    //{
-    //    Vector2 maxPosX;
-    //    Vector2 maxPosY;
-    //    //Horizontal bounds
-    //    if (transform.position.x < boundsLeft)
-    //    {
-    //        maxPosX = new Vector2(boundsLeft, transform.position.y);
-    //        transform.position = maxPosX;
-    //    }
-    //    else if (transform.position.x > boundsRight)
-    //    {
-    //        maxPosX = new Vector2(boundsRight, transform.position.y);
-    //        transform.position = maxPosX;
-    //    }
-    //    //Vertical bounds
-    //    if (transform.position.y < boundsDown)
-    //    {
-    //        maxPosY = new Vector2(transform.position.x, boundsDown);
-    //        transform.position = maxPosY;
-    //    }
-    //    else if (transform.position.y > boundsUp)
-    //    {
-    //        maxPosY = new Vector2(transform.position.x, boundsUp);
-    //        transform.position = maxPosY;
-    //    }
-
-    //}
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Meteor")
