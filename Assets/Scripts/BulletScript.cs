@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     private GameManager gameManager;
+    public int hitCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,12 @@ public class BulletScript : MonoBehaviour
     {
         if (col.tag == "Bounds")
             Destroy(gameObject);
+
+        if(col.tag == "Swarm")
+        {
+            hitCounter++;
+            //put combo instructions here
+        }
     }
 
 }

@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject healthOrb;
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
-    private bool doubleShot = false, shotgun = false, fullDirectional = false;
+    private bool doubleShot = false, shotgun = true, fullDirectional = false;
     public GameObject bulletPrefab;
     private GameObject cameraShake;
     Transform fireLocation;
@@ -165,6 +165,12 @@ public class PlayerScript : MonoBehaviour
         else if (shotgun)
         {
             Debug.Log("Shotgun");
+            GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
+            GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
+            GameObject tbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 1.0f), (fireLocation.position.y), fireLocation.position.z), 
+                Quaternion.Euler(fireLocation.rotation.x, fireLocation.rotation.y, (fireLocation.rotation.z - 10.0f))) as GameObject;
+            GameObject qbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 1.0f), (fireLocation.position.y), fireLocation.position.z),
+                Quaternion.Euler(fireLocation.rotation.x, fireLocation.rotation.y, (fireLocation.rotation.z + 10.0f))) as GameObject;
         }
         else if (fullDirectional)
         {
