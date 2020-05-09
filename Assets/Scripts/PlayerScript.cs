@@ -11,9 +11,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject[] damageWedges;
     public GameObject healthOrb;
     public GameObject damageOrb;
-    public bool inRepair = false,
-        doubleShot, shotgun, fullDirectional;
-    public bool hasPowerUp = false;
+    public bool inRepair = false, hasPowerUp = false;
+    private bool doubleShot, shotgun, fullDirectional;
     public GameObject bulletPrefab;
     private GameObject cameraShake;
     Transform fireLocation;
