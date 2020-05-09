@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
     float xMove = 10f;
     public float speed, turnSpeed;
     float yMove = 10f;
-    public float boundsLeft = -8.5f;
-    public float boundsRight = 8.5f;
-    public float boundsUp = -4.5f;
-    public float boundsDown = -4.45f;
+    //public float boundsLeft = -8.5f;
+    //public float boundsRight = 8.5f;
+    //public float boundsUp = -4.5f;
+    //public float boundsDown = -4.45f;
     private int spinCount = 0;
     Rigidbody2D rb;
 
@@ -23,17 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckInput();
-        if (transform.rotation.z >= 90)
-        {
-            spinCount++;
-            if (spinCount >= 3)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                spinCount = 0;
-            }
-        }
-
-        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     void FixedUpdate()
@@ -58,32 +47,47 @@ public class PlayerMovement : MonoBehaviour
             //rb.MoveRotation(Quaternion.LookRotation(Vector3.forward, newVelocity));
     }
 
-    void CheckBounds()
-    {
-        Vector2 maxPosX;
-        Vector2 maxPosY;
-        //Horizontal bounds
-        if (transform.position.x < boundsLeft)
-        {
-            maxPosX = new Vector2(boundsLeft, transform.position.y);
-            transform.position = maxPosX;
-        }
-        else if (transform.position.x > boundsRight)
-        {
-            maxPosX = new Vector2(boundsRight, transform.position.y);
-            transform.position = maxPosX;
-        }
-        //Vertical bounds
-        if (transform.position.y < boundsDown)
-        {
-            maxPosY = new Vector2(transform.position.x, boundsDown);
-            transform.position = maxPosY;
-        }
-        else if (transform.position.y > boundsUp)
-        {
-            maxPosY = new Vector2(transform.position.x, boundsUp);
-            transform.position = maxPosY;
-        }
+    //void CheckBounds()
+    //{
+    //    Vector2 maxPosX;
+    //    Vector2 maxPosY;
+    //    //Horizontal bounds
+    //    if (transform.position.x < boundsLeft)
+    //    {
+    //        maxPosX = new Vector2(boundsLeft, transform.position.y);
+    //        transform.position = maxPosX;
+    //    }
+    //    else if (transform.position.x > boundsRight)
+    //    {
+    //        maxPosX = new Vector2(boundsRight, transform.position.y);
+    //        transform.position = maxPosX;
+    //    }
+    //    //Vertical bounds
+    //    if (transform.position.y < boundsDown)
+    //    {
+    //        maxPosY = new Vector2(transform.position.x, boundsDown);
+    //        transform.position = maxPosY;
+    //    }
+    //    else if (transform.position.y > boundsUp)
+    //    {
+    //        maxPosY = new Vector2(transform.position.x, boundsUp);
+    //        transform.position = maxPosY;
+    //    }
 
+    //}
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Meteor")
+        {
+            StartCoroutine(MeteorCollision());
+        }
     }
+
+    IEnumerator MeteorCollision()
+    {
+        rb.freezeRotation = true;
+        yield return new WaitForSeconds(1.5f);
+        rb.freezeRotation = false;
+    }
+    
 }
