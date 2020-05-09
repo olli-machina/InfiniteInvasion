@@ -73,9 +73,9 @@ public class PlayerScript : MonoBehaviour
             healthWedges[(int)health].SetActive(false);
             damageWedges[(int)health].SetActive(true);
             healthUI.decreaseValue(health / maxHealth);
-            StartCoroutine(flashRed());
+            //StartCoroutine(flashRed());
         }
-        if (health <= 0)
+        else if (health <= 0)
         {
             health = 0;
             damageOrb.SetActive(true);
