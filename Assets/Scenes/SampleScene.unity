@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 268672869}
   - component: {fileID: 268672870}
   - component: {fileID: 268672871}
+  - component: {fileID: 268672872}
   m_Layer: 0
   m_Name: ORION
   m_TagString: Ship
@@ -330,6 +331,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &268672872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268672866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644201e799711c24e983941237eafe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 6679536712732807181, guid: ffb6d692bdd2e304b8c2719ea404c3a7, type: 3}
 --- !u!1 &298783629
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +909,7 @@ GameObject:
   - component: {fileID: 506537334}
   - component: {fileID: 506537336}
   - component: {fileID: 506537338}
+  - component: {fileID: 506537339}
   - component: {fileID: 506537337}
   m_Layer: 0
   m_Name: GOLIATH
@@ -1029,6 +1044,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &506537339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506537333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644201e799711c24e983941237eafe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 6679536712732807181, guid: ffb6d692bdd2e304b8c2719ea404c3a7, type: 3}
 --- !u!1 &510393996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5429,6 +5457,7 @@ GameObject:
   - component: {fileID: 1775496480}
   - component: {fileID: 1775496481}
   - component: {fileID: 1775496482}
+  - component: {fileID: 1775496483}
   m_Layer: 0
   m_Name: ATLAS
   m_TagString: Ship
@@ -5562,6 +5591,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1775496483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775496477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644201e799711c24e983941237eafe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 6679536712732807181, guid: ffb6d692bdd2e304b8c2719ea404c3a7, type: 3}
 --- !u!1 &1834583749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5948,6 +5990,7 @@ GameObject:
   - component: {fileID: 1985914978}
   - component: {fileID: 1985914979}
   - component: {fileID: 1985914980}
+  - component: {fileID: 1985914981}
   m_Layer: 0
   m_Name: JUNO
   m_TagString: Ship
@@ -6081,6 +6124,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1985914981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985914975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644201e799711c24e983941237eafe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: {fileID: 6679536712732807181, guid: ffb6d692bdd2e304b8c2719ea404c3a7, type: 3}
 --- !u!1001 &1993364453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6817,6 +6873,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537536777459382359, guid: a1e0a46d0ea4d5242af5ab977ff38946,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 8953257417862487344, guid: a1e0a46d0ea4d5242af5ab977ff38946,
         type: 3}
