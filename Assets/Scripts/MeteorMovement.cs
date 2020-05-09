@@ -6,7 +6,7 @@ public class MeteorMovement : MonoBehaviour
 {
 
     private float xMove, yMove;
-    public float meteorSpeed;
+    public float meteorSpeed, bounceForce = -1.0f;
     Rigidbody2D rb;
     GameManager gameManager;
 
@@ -69,7 +69,8 @@ public class MeteorMovement : MonoBehaviour
 
         else if (col.gameObject.tag == "Ship")
         {
-            meteorSpeed *= -1.0f;
+            meteorSpeed = -meteorSpeed;
+            Debug.Log(meteorSpeed);
         }
 
         if(col.gameObject.tag == "Bounds")
