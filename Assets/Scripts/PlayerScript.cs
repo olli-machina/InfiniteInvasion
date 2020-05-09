@@ -7,6 +7,10 @@ public class PlayerScript : MonoBehaviour
 {
     public float health = 10, maxHealth = 10;
     public HealthBar healthUI;
+    public GameObject[] healthWedges;
+    public GameObject[] damageWedges;
+    public GameObject healthOrb;
+    public GameObject damageOrb;
     public bool inRepair = false;
     public GameObject bullet;
     private GameObject cameraShake;
@@ -17,6 +21,11 @@ public class PlayerScript : MonoBehaviour
     {
         fireLocation = transform.Find("BulletSpawn");
         cameraShake = GameObject.Find("Main Camera");
+        for (int i = 9; i >= 0; i--)
+        {
+            damageWedges[i].SetActive(false);
+        }
+        damageOrb.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,6 +61,8 @@ public class PlayerScript : MonoBehaviour
     public void DamageHealth(float damage)
     {
         health -= damage;
+        healthWedges[(int)health].SetActive(false);
+        damageWedges[(int)health].SetActive(true);
         healthUI.decreaseValue(health / maxHealth);
         StartCoroutine(flashRed());
         if (health <= 3.5)
@@ -71,9 +82,11 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator flashRed()
     {
-        gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        healthOrb.SetActive(false);
+        damageOrb.SetActive(true);
         yield return new WaitForSeconds(.25f);
-        gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        healthOrb.SetActive(true);
+        damageOrb.SetActive(false);
     }
 
     void OnCollisionEnter2D(Collision2D col)
