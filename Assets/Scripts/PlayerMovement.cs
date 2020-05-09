@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     //public float boundsRight = 8.5f;
     //public float boundsUp = -4.5f;
     //public float boundsDown = -4.45f;
-    private int spinCount = 0;
     Rigidbody2D rb;
 
     void Start()
