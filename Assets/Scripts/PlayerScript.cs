@@ -35,7 +35,9 @@ public class PlayerScript : MonoBehaviour
         {
             if (inRepair)
             {
-                health += 0.5f;
+                healthWedges[(int)health].SetActive(true);
+                damageWedges[(int)health].SetActive(false);
+                health += 1f;
                 gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
             else
@@ -52,11 +54,13 @@ public class PlayerScript : MonoBehaviour
                 health += 0.5f;
         */
         
-        if (health > 10)
+        if (health >= 10)
         {
             health = 10;
             inRepair = false;
             GetComponent<PlayerMovement>().enabled = true;
+            healthOrb.SetActive(true);
+            damageOrb.SetActive(false);
         }
 
         healthUI.decreaseValue(health / maxHealth);
@@ -74,6 +78,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (health <= 0)
         {
+            health = 0;
             damageOrb.SetActive(true);
             healthOrb.SetActive(false);
             inRepair = true;
@@ -114,6 +119,8 @@ public class PlayerScript : MonoBehaviour
                 healthWedges[i].SetActive(false);
                 damageWedges[i].SetActive(true);
             }
+            damageOrb.SetActive(true);
+            healthOrb.SetActive(false);
             inRepair = true;
             ForceRepair();
         }
