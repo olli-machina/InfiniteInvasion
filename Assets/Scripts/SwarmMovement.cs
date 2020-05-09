@@ -8,7 +8,7 @@ public class SwarmMovement : MonoBehaviour
     private int target, ship;
     private Vector3 targetPosition;
     private GameManager gameManager;
-    private GameObject player, ship1, ship2, ship3, ship4;
+    private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class SwarmMovement : MonoBehaviour
         ship2 = GameObject.Find("Ship2");
         ship3 = GameObject.Find("Ship3");
         ship4 = GameObject.Find("Ship4");
+        cameraShake = GameObject.Find("Main Camera");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         target = Random.Range(0, 3);
     }
@@ -58,6 +59,7 @@ public class SwarmMovement : MonoBehaviour
         if(col.tag == "Player")
         {
             player.GetComponent<PlayerScript>().DamageHealth(1);
+            cameraShake.GetComponent<CameraShake>().Shake();
             Destroy(gameObject);
         }
         else if (col.tag == "Bullet")

@@ -9,12 +9,14 @@ public class PlayerScript : MonoBehaviour
     public HealthBar healthUI;
     public bool inRepair = false;
     public GameObject bullet;
+    private GameObject cameraShake;
     Transform fireLocation;
 
     // Start is called before the first frame update
     void Start()
     {
         fireLocation = transform.Find("BulletSpawn");
+        cameraShake = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Meteor")
         {
+            cameraShake.GetComponent<CameraShake>().Shake();
             health = 2;
             inRepair = true;
             ForceRepair();
