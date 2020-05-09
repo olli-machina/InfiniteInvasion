@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     public float health = 10, maxHealth = 10;
-    public HealthBar healthUI;
     public GameObject[] healthWedges;
     public GameObject[] damageWedges;
     public GameObject healthOrb;
@@ -61,8 +60,6 @@ public class PlayerScript : MonoBehaviour
             healthOrb.SetActive(true);
             damageOrb.SetActive(false);
         }
-
-        healthUI.decreaseValue(health / maxHealth);
     }
 
     public void DamageHealth(float damage)
@@ -72,7 +69,6 @@ public class PlayerScript : MonoBehaviour
             health -= damage;
             healthWedges[(int)health].SetActive(false);
             damageWedges[(int)health].SetActive(true);
-            healthUI.decreaseValue(health / maxHealth);
             //StartCoroutine(flashRed());
         }
         else if (health <= 0)
@@ -124,5 +120,4 @@ public class PlayerScript : MonoBehaviour
             ForceRepair();
         }
     }
-
 }
