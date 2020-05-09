@@ -31,11 +31,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
             if (inRepair)
             {
-                health += 0.05f;
+                health += 0.5f;
                 gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
             else
@@ -44,17 +44,19 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        /*
         if (Input.GetKeyUp("space"))
         {
             gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             if (inRepair)
                 health += 0.5f;
-        }
-
+        */
+        
         if (health > 10)
         {
             health = 10;
             inRepair = false;
+            GetComponent<PlayerMovement>().enabled = true;
         }
 
         healthUI.decreaseValue(health / maxHealth);
@@ -62,13 +64,18 @@ public class PlayerScript : MonoBehaviour
 
     public void DamageHealth(float damage)
     {
-        health -= damage;
-        healthWedges[(int)health].SetActive(false);
-        damageWedges[(int)health].SetActive(true);
-        healthUI.decreaseValue(health / maxHealth);
-        StartCoroutine(flashRed());
-        if (health <= 3.5)
+        if (health > 0)
         {
+            health -= damage;
+            healthWedges[(int)health].SetActive(false);
+            damageWedges[(int)health].SetActive(true);
+            healthUI.decreaseValue(health / maxHealth);
+            StartCoroutine(flashRed());
+        }
+        if (health <= 0)
+        {
+            damageOrb.SetActive(true);
+            healthOrb.SetActive(false);
             inRepair = true;
             ForceRepair();
             Debug.Log("Repairing" + inRepair);
@@ -77,9 +84,14 @@ public class PlayerScript : MonoBehaviour
 
     public void ForceRepair()
     {
+        GetComponent<PlayerMovement>().enabled = false;
+        
         //stop firing
-        if(health >= 3.5)
+        if(health >= 10)
+        {
             inRepair = false;
+            GetComponent<PlayerMovement>().enabled = true;
+        }
     }
 
     IEnumerator flashRed()
@@ -96,7 +108,12 @@ public class PlayerScript : MonoBehaviour
         if(col.gameObject.tag == "Meteor")
         {
             cameraShake.GetComponent<CameraShake>().Shake();
-            health = 2;
+            health = 0;
+            for (int i = 9; i >= 0; i--)
+            {
+                healthWedges[i].SetActive(false);
+                damageWedges[i].SetActive(true);
+            }
             inRepair = true;
             ForceRepair();
         }
