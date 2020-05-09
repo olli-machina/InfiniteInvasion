@@ -6,6 +6,7 @@ public class MeteorMovement : MonoBehaviour
 {
 
     private float xMove, yMove;
+    private bool flipped = false;
     public float meteorSpeed, bounceForce = -1.0f;
     Rigidbody2D rb;
     GameManager gameManager;
@@ -40,7 +41,16 @@ public class MeteorMovement : MonoBehaviour
 
     void Move()
     {
-        Vector2 newVelocity = new Vector2(xMove, yMove);
+        Vector2 newVelocity;
+        if (!flipped)
+        {
+            newVelocity = new Vector2(xMove, yMove);
+        }
+        else
+        {
+            newVelocity = new Vector2(-xMove, -yMove);
+        }
+
         rb.velocity = newVelocity;
     }
 
@@ -69,8 +79,7 @@ public class MeteorMovement : MonoBehaviour
 
         else if (col.gameObject.tag == "Ship")
         {
-            meteorSpeed = -meteorSpeed;
-            Debug.Log(meteorSpeed);
+            flipped = !flipped;
         }
 
         if(col.gameObject.tag == "Bounds")
