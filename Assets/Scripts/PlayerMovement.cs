@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float boundsRight = 8.5f;
     public float boundsUp = -4.5f;
     public float boundsDown = -4.45f;
+    private int spinCount = 0;
     Rigidbody2D rb;
 
     void Start()
@@ -22,6 +23,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         CheckInput();
+        if (transform.rotation.z >= 90)
+        {
+            spinCount++;
+            if (spinCount >= 3)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                spinCount = 0;
+            }
+        }
+
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     void FixedUpdate()
@@ -42,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = newVelocity;
 
         if (newVelocity != Vector2.zero)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, newVelocity), Time.fixedDeltaTime * turnSpeed);
+            rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, newVelocity), Time.fixedDeltaTime * turnSpeed));
+            //rb.MoveRotation(Quaternion.LookRotation(Vector3.forward, newVelocity));
     }
 
     void CheckBounds()
