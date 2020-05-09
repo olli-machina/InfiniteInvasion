@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject Meteor, SwarmMember;
     Vector3 position;
     private int shipCounter = 0;
+    public int score;
     private float spawnTimer = 0.0f;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
                     spawnPoint2 = new Vector3(0.58f, -2.74f, 0.0f),
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour
             SpawnSwarm();
             spawnTimer = 0.0f;
         }
+
+
+    }
+
+    public void ChangeScore(int addPoints)
+    {
+        score += addPoints;
     }
 
     public void SpawnMeteor()

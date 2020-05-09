@@ -71,5 +71,10 @@ public class MeteorMovement : MonoBehaviour
         {
             meteorSpeed *= -1.0f;
         }
+
+        if(col.gameObject.tag == "Bounds")
+        {
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), col.gameObject.GetComponent<Collider2D>());
+        }
     }
 }

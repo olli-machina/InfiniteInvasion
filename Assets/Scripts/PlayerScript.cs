@@ -8,20 +8,24 @@ public class PlayerScript : MonoBehaviour
     public float health = 10, maxHealth = 10;
     public HealthBar healthUI;
     public bool inRepair = false;
+    public GameObject bullet;
+    Transform fireLocation;
 
     // Start is called before the first frame update
     void Start()
     {
+        fireLocation = transform.Find("BulletSpawn");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("space"))
-            health += 0.025f;
         if (Input.GetKeyDown("space"))
         {
-            health += 0.5f;  
+            if(inRepair)
+                health += 0.025f;
+            else
+                Instantiate(bullet, fireLocation.position, fireLocation.rotation);
         }
 
         if (health > 10)
