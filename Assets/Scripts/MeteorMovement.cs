@@ -7,7 +7,7 @@ public class MeteorMovement : MonoBehaviour
 
     private float xMove, yMove;
     private bool flipped = false;
-    public float meteorSpeed, bounceForce = -1.0f;
+    public float meteorSpeed;
     Rigidbody2D rb;
     GameManager gameManager;
 
