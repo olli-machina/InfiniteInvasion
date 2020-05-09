@@ -461,8 +461,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -8
-  m_Sprite: {fileID: 21300000, guid: 9a4a815bf0f6aca4c9a0bbce6469db60, type: 3}
-  m_Color: {r: 0.015278985, g: 0, b: 0.09433961, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 125a76cb383a1c043a0cef2f979c85f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -481,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 472278920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.01, y: 0.19, z: 0}
-  m_LocalScale: {x: 59.911507, y: 39.74412, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -952,7 +952,7 @@ MonoBehaviour:
   maxHealth: 10
   healthUI: {fileID: 1797147917}
   inRepair: 0
-  bullet: {fileID: 0}
+  bullet: {fileID: 6537536777459382359, guid: a1e0a46d0ea4d5242af5ab977ff38946, type: 3}
 --- !u!58 &702865896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264736927}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 31.7, y: -0.1, z: -17.507812}
+  m_LocalPosition: {x: 30.3, y: -0.1, z: -17.507812}
   m_LocalScale: {x: 40.348072, y: 2.675, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1860,7 +1860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361803236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -21.1, z: -17.507812}
+  m_LocalPosition: {x: -0, y: -19, z: -17.507812}
   m_LocalScale: {x: 64.14001, y: 2.675, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2189,7 +2189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651202249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 21.4, z: -17.507812}
+  m_LocalPosition: {x: -0, y: 20.4, z: -17.507812}
   m_LocalScale: {x: 64.14001, y: 2.675, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2625,7 +2625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971806279}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -31.3, y: -0.1, z: -17.507812}
+  m_LocalPosition: {x: -28.3, y: -0.1, z: -17.507812}
   m_LocalScale: {x: 40.348072, y: 2.675, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3174,6 +3174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537536777459382359, guid: a1e0a46d0ea4d5242af5ab977ff38946,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8953257417862487344, guid: a1e0a46d0ea4d5242af5ab977ff38946,
         type: 3}

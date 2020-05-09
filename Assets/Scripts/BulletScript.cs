@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        GetComponent<Rigidbody2D>().AddForce(transform.forward * bulletSpeed);
+        GetComponent<Rigidbody2D>().AddForce(transform.up * bulletSpeed);
     }
 
     // Update is called once per frame

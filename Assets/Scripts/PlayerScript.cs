@@ -22,16 +22,30 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey("space"))
         {
-            if(inRepair)
-                health += 0.025f;
+            if (inRepair)
+            {
+                health += 0.05f;
+                gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+            }
             else
-                Instantiate(bullet, fireLocation.position, fireLocation.rotation);
+            {
+                //Instantiate(bullet, fireLocation.position, fireLocation.rotation);
+                gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            }
         }
 
+        if (Input.GetKeyUp("space"))
+            if (inRepair)
+                health += 0.5f;
+
         if (health > 10)
+        {
             health = 10;
+            inRepair = false;
+        }
+
         healthUI.decreaseValue(health / maxHealth);
     }
 
@@ -40,9 +54,11 @@ public class PlayerScript : MonoBehaviour
         health -= damage;
         healthUI.decreaseValue(health / maxHealth);
         StartCoroutine(flashRed());
-        if (health <= 3.0)
+        if (health <= 3.5)
         {
+            inRepair = true;
             ForceRepair();
+            Debug.Log("Repairing" + inRepair);
         }
     }
 
