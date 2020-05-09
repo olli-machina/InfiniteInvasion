@@ -14,10 +14,10 @@ public class SwarmMovement : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        ship1 = GameObject.Find("Ship1");
-        ship2 = GameObject.Find("Ship2");
-        ship3 = GameObject.Find("Ship3");
-        ship4 = GameObject.Find("Ship4");
+        ship1 = GameObject.Find("ATLAS");
+        ship2 = GameObject.Find("GOLIATH");
+        ship3 = GameObject.Find("JUNO");
+        ship4 = GameObject.Find("ORION");
         cameraShake = GameObject.Find("Main Camera");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         target = Random.Range(0, 3);
@@ -56,8 +56,10 @@ public class SwarmMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log(col.tag);
         if(col.tag == "Player")
         {
+            Debug.Log("Player Collision");
             player.GetComponent<PlayerScript>().DamageHealth(1);
             cameraShake.GetComponent<CameraShake>().Shake();
             Destroy(gameObject);
@@ -68,6 +70,13 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Meteor")
         {
+            Debug.Log("Meteor Collision");
+            Destroy(gameObject);
+        }
+        else if (col.tag == "Ship")
+        {
+            Debug.Log("Ship Collision");
+            ship1.GetComponent<ColonyShipScript>().health -= 1;
             Destroy(gameObject);
         }
     }
