@@ -2691,8 +2691,8 @@ MonoBehaviour:
   ySmooth: 8
   xBounds: 20
   yBounds: 20
-  minBounds: {x: -20, y: -14}
-  maxBounds: {x: 20, y: 14}
+  minBounds: {x: -18, y: -9}
+  maxBounds: {x: 18, y: 10}
 --- !u!4 &783812346
 Transform:
   m_ObjectHideFlags: 0
@@ -4308,7 +4308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264736927}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 27.736263, y: 3.1072056, z: -8.566406}
+  m_LocalPosition: {x: 34.6, y: 3.1072056, z: -8.566406}
   m_LocalScale: {x: 40.34807, y: 2.6749997, z: 1}
   m_Children: []
   m_Father: {fileID: 717151339}
@@ -11584,7 +11584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971806279}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -30.863735, y: 3.1072056, z: -8.566406}
+  m_LocalPosition: {x: -39.9, y: 3.1072056, z: -8.566406}
   m_LocalScale: {x: 40.34807, y: 2.6749997, z: 1}
   m_Children: []
   m_Father: {fileID: 717151339}
