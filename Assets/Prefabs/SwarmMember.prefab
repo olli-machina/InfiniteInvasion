@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  turnSpeed: 0
   attackPoints: {fileID: 8942352785889946182, guid: 838ce97817fe7fc489aef7cb407f60f7,
     type: 3}
   basicPoints: {fileID: 3212738092159187362, guid: 82f1d3e79ce5c734db44187857a07c85,

@@ -92,6 +92,7 @@ public class SwarmMovement : MonoBehaviour
     {
         if(col.tag == "Player")
         {
+            Debug.Log("Player");
             player.GetComponent<PlayerScript>().DamageHealth(1);
             cameraShake.GetComponent<CameraShake>().Shake();
             if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
@@ -139,6 +140,12 @@ public class SwarmMovement : MonoBehaviour
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
             }
             Destroy(gameObject);
+        }
+        else if(col.tag == "Swarm")
+        {
+            Debug.Log("Move");
+            Vector3 dist = transform.position - col.transform.position;
+            transform.position += dist * Time.deltaTime;
         }
     }
 
