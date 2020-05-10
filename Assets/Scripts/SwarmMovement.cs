@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SwarmMovement : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class SwarmMovement : MonoBehaviour
     public bool nearColonyShip;
     public GameObject colonyShip;
     public Sprite attackPlayer;
-    public Animation anim;
+    //public Animation anim;
     public Animator animController;
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class SwarmMovement : MonoBehaviour
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
-        anim = GetComponent<Animation>();
+        //anim = GetComponent<Animation>();
         animController = GetComponent<Animator>();
     }
 
@@ -148,9 +149,9 @@ public class SwarmMovement : MonoBehaviour
 
     IEnumerator Explosion()
     {
-        anim.Play("Explosion");
+        //anim.Play("Explosion");
         animController.SetBool("dead", true);
-        yield return new WaitForSeconds(anim["Explosion"].length);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
@@ -184,7 +185,8 @@ public class SwarmMovement : MonoBehaviour
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
         }
-        Destroy(gameObject);
+
+        StartCoroutine(Explosion());
     }
 
     void Meteor()
@@ -193,7 +195,7 @@ public class SwarmMovement : MonoBehaviour
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
         }
-        Destroy(gameObject);
+        StartCoroutine(Explosion());
     }
 
     void Ship()
@@ -202,7 +204,7 @@ public class SwarmMovement : MonoBehaviour
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
         }
-        Destroy(gameObject);
+        StartCoroutine(Explosion());
     }
 
     void Swarm(Vector3 dist)
