@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
 
-    private GameObject Player;
-    public GameObject Meteor, SwarmMember;
+    private GameObject Player, Meteor;
+    public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember;
     Vector3 position;
     private int shipCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
@@ -108,6 +108,18 @@ public class GameManager : MonoBehaviour
             position = new Vector3(UnityEngine.Random.Range(-41.0f, -32.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
         else
             position = new Vector3(UnityEngine.Random.Range(32.0f, 37.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
+
+        var meteorSprite = UnityEngine.Random.Range(0, 4);
+        if (meteorSprite == 0)
+            Meteor = mPrefab1;
+        else if (meteorSprite == 1)
+            Meteor = mPrefab2;
+        else if (meteorSprite == 2)
+            Meteor = mPrefab3;
+        else if (meteorSprite == 3)
+            Meteor = mPrefab4;
+        else if (meteorSprite == 4)
+            Meteor = mPrefab5;
 
         Instantiate(Meteor, position, Quaternion.identity);
     }
