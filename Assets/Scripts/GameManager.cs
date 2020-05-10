@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
                     spawnPoint8 = new Vector3(-0.41f, 0.5f, 0.0f),
                     spawnPoint9 = new Vector3(-1.22f, 2.03f, 0.0f),
                     spawnPoint10 = new Vector3(1.08f, 2.12f, 0.0f);
+    public List<int> highScores;
+    public bool setScore = false;
 
     void Awake()
     {
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
             randShipDuration = 30f;
 
         randShipNumber = 0;
+
+        LoadScores();
     }
 
     // Update is called once per frame
@@ -77,7 +82,15 @@ public class GameManager : MonoBehaviour
             shipTimer = 0.0f;
         }
 
-
+        if (shipsLeft <= 0)
+        {
+            //SceneManager.LoadScene("EndScreen");
+            if (setScore == false)
+            {
+                setScore = true;
+                CheckScores();
+            }
+        }
     }
 
     public void ChangeScore(int addPoints)
@@ -131,4 +144,64 @@ public class GameManager : MonoBehaviour
         Instantiate(SwarmMember, spawnPoint9, Quaternion.identity);
         Instantiate(SwarmMember, spawnPoint10, Quaternion.identity);
     }
+
+    public void CheckScores()
+    {
+        for (int i = 0; i <= 9; i++)
+        {
+            if (score > highScores[i])
+            {
+                highScores.Insert(i, score);
+                highScores.Remove(10);
+                break;
+            }
+        }
+
+        SaveScores();
+    }
+
+    public void SaveScores()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/highScores.dat");
+
+        HighScores data = new HighScores();
+        data.highScores = new int[10];
+        for (int i = 0; i <=9; i++)
+        {
+            data.highScores[i] = highScores[i];
+        }
+
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public void LoadScores()
+    {
+        if(File.Exists(Application.persistentDataPath + "/highScores.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/highScores.dat", FileMode.Open);
+            HighScores data = (HighScores)bf.Deserialize(file);
+            file.Close();
+
+            highScores = new List<int>(10);
+            highScores.Add(data.highScores[0]);
+            highScores.Add(data.highScores[1]);
+            highScores.Add(data.highScores[2]);
+            highScores.Add(data.highScores[3]);
+            highScores.Add(data.highScores[4]);
+            highScores.Add(data.highScores[5]);
+            highScores.Add(data.highScores[6]);
+            highScores.Add(data.highScores[7]);
+            highScores.Add(data.highScores[8]);
+            highScores.Add(data.highScores[9]);
+        }
+    }
+}
+
+[Serializable]
+class HighScores
+{
+    public int[] highScores;
 }

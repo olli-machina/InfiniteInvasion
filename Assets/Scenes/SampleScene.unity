@@ -11237,6 +11237,8 @@ MonoBehaviour:
   spawnPoint8: {x: -0.41, y: -0.5, z: 0}
   spawnPoint9: {x: -1.22, y: 2.03, z: 0}
   spawnPoint10: {x: 1.08, y: 2.12, z: 0}
+  highScores: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  setScore: 0
 --- !u!4 &1764697849
 Transform:
   m_ObjectHideFlags: 0
