@@ -161,12 +161,12 @@ public class SwarmMovement : MonoBehaviour
         if (target == 0)
         {
             GameManager.singleton.ChangeScore(25);
-            GameManager.singleton.ItemDrop(2);
+            GameManager.singleton.ItemDrop(2, gameObject);
         }
         else
         {
             GameManager.singleton.ChangeScore(10);
-            GameManager.singleton.ItemDrop(1);
+            GameManager.singleton.ItemDrop(1, gameObject);
         }
 
         ShowPoints();

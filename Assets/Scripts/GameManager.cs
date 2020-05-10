@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("EndScreen");
     }
 
-    public void ItemDrop(int points)
+    public void ItemDrop(int points, GameObject enemy)
     {
         itemCounter += points;
         if(itemCounter >= 10)
@@ -145,22 +145,22 @@ public class GameManager : MonoBehaviour
                 var randomChance = UnityEngine.Random.Range(0, 100);
                 if (randomChance < 5) //5% chance enemy drops full directional
                 {
-                    var FD = Instantiate(fulldirectional, gameObject.transform.position, Quaternion.identity);
+                    var FD = Instantiate(fulldirectional, enemy.transform.position, Quaternion.identity);
                     FD.name = "FullDirectional";
                 }
                 else if(randomChance < 10)// 10% chance enemy drops instant fix
                 {
-                    var IF = Instantiate(instantFix, gameObject.transform.position, Quaternion.identity);
+                    var IF = Instantiate(instantFix, enemy.transform.position, Quaternion.identity);
                     IF.name = "InstantFix";
                 }
                 else if (randomChance < 15) //15% chance enemy drops shotgun
                 {
-                    var SG = Instantiate(shotgun, gameObject.transform.position, Quaternion.identity);
+                    var SG = Instantiate(shotgun, enemy.transform.position, Quaternion.identity);
                     SG.name = "Shotgun";
                 }
                 else if (randomChance < 25) //25% chance enemy drops double shot
                 {
-                    var DS = Instantiate(doubleshot, gameObject.transform.position, Quaternion.identity);
+                    var DS = Instantiate(doubleshot, enemy.transform.position, Quaternion.identity);
                     DS.name = "DoubleShot";
                 }
             }

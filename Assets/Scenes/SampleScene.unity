@@ -11989,7 +11989,8 @@ MonoBehaviour:
     type: 3}
   fulldirectional: {fileID: 4123930553899628275, guid: 859a6090b85021f47a85a8dadc6f1ad7,
     type: 3}
-  instantFix: {fileID: 0}
+  instantFix: {fileID: 6598449910604842948, guid: 6bc3daf99bd761f4fba47328cbb863b6,
+    type: 3}
   gameOver1: {fileID: 1491500157}
   gameOver2: {fileID: 767023119}
   score: 0
