@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject Meteor, SwarmMember;
     Vector3 position;
     private int shipCounter = 0;
-    public int score, randShipNumber = 0, randomTime;
+    public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f;
     public Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
@@ -43,7 +46,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
-        randomTime = Random.Range(0, 2);
+        randomTime = UnityEngine.Random.Range(0, 2);
         if(randomTime == 0)
             randShipDuration = 60f;
         else
@@ -64,13 +67,13 @@ public class GameManager : MonoBehaviour
         }
         if(shipTimer >= randShipDuration)
         {
-            randomTime = Random.Range(0, 2);
+            randomTime = UnityEngine.Random.Range(0, 2);
             if (randomTime == 0)
                 randShipDuration = 15.0f;
             else
                 randShipDuration = 30.0f;
 
-            randShipNumber = Random.Range(0, 4);
+            randShipNumber = UnityEngine.Random.Range(0, 4);
             shipTimer = 0.0f;
         }
 
@@ -86,11 +89,11 @@ public class GameManager : MonoBehaviour
 
     public void SpawnMeteor()
     {
-        var rL = Random.Range(0, 2);
+        var rL = UnityEngine.Random.Range(0, 2);
         if(rL == 0)
-            position = new Vector3(Random.Range(-41.0f, -32.0f), Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(-41.0f, -32.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
         else
-            position = new Vector3(Random.Range(32.0f, 37.0f), Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(32.0f, 37.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
 
         Instantiate(Meteor, position, Quaternion.identity);
     }
