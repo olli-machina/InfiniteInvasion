@@ -567,7 +567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268672866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.7, y: -15.5, z: 0}
+  m_LocalPosition: {x: 40, y: -20, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 503233493}
@@ -612,8 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc001b866928e4fbca9451e2d0ed9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   healthUI: {fileID: 1911246076}
 --- !u!50 &268672871
 Rigidbody2D:
@@ -1705,7 +1705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506537333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.7, y: 16.6, z: 0}
+  m_LocalPosition: {x: 40, y: 20, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 389154407}
@@ -1750,8 +1750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc001b866928e4fbca9451e2d0ed9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   healthUI: {fileID: 1306022479}
 --- !u!50 &506537338
 Rigidbody2D:
@@ -3425,8 +3425,8 @@ MonoBehaviour:
   xBounds: 20
   yBounds: 20
   moveSpeed: 5
-  minBounds: {x: -18, y: -9}
-  maxBounds: {x: 18, y: 10}
+  minBounds: {x: -30, y: -16.75}
+  maxBounds: {x: 30, y: 16.75}
   pm: {x: 0, y: 0}
 --- !u!4 &783812346
 Transform:
@@ -4525,8 +4525,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011733562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004538536, y: -0.13368517, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 6.434903}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_Children:
   - {fileID: 1330986257}
   - {fileID: 9487306}
@@ -5212,7 +5212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264736927}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 34.6, y: 3.1072056, z: -8.566406}
+  m_LocalPosition: {x: 42.7, y: 3.1, z: -8.566406}
   m_LocalScale: {x: 55.478592, y: 2.6749997, z: 1}
   m_Children: []
   m_Father: {fileID: 717151339}
@@ -10535,7 +10535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361803236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.563737, y: -19.2, z: -8.566406}
+  m_LocalPosition: {x: -2.563737, y: -20.1, z: -8.566406}
   m_LocalScale: {x: 93.00301, y: 2.675, z: 1}
   m_Children: []
   m_Father: {fileID: 717151339}
@@ -11996,16 +11996,16 @@ MonoBehaviour:
   randShipNumber: 0
   randomTime: 0
   shipsLeft: 4
-  spawnPoint1: {x: 1.9, y: -1.72, z: 0}
-  spawnPoint2: {x: 0.58, y: -2.74, z: 0}
-  spawnPoint3: {x: 0.97, y: 0.23, z: 0}
-  spawnPoint4: {x: 2.32, y: -0.13, z: 0}
-  spawnPoint5: {x: 1.54, y: -1.24, z: 0}
-  spawnPoint6: {x: -0.2, y: -0.64, z: 0}
-  spawnPoint7: {x: -1.79, y: -0.79, z: 0}
-  spawnPoint8: {x: -0.41, y: -0.5, z: 0}
-  spawnPoint9: {x: -1.22, y: 2.03, z: 0}
-  spawnPoint10: {x: 1.08, y: 2.12, z: 0}
+  spawnPoint1: {x: 4, y: -0.75, z: 0}
+  spawnPoint2: {x: 1.8, y: 0.6, z: 0}
+  spawnPoint3: {x: 0, y: 3, z: 0}
+  spawnPoint4: {x: 0, y: 6, z: 0}
+  spawnPoint5: {x: -1.4, y: 0.8, z: 0}
+  spawnPoint6: {x: -4, y: -0.5, z: 0}
+  spawnPoint7: {x: -1.2, y: -2.5, z: 0}
+  spawnPoint8: {x: 0, y: -5.6, z: 0}
+  spawnPoint9: {x: 1.2, y: -2.7, z: 0}
+  spawnPoint10: {x: 0, y: 0, z: 0}
   highScores: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   setScore: 0
 --- !u!4 &1764697849
@@ -12101,7 +12101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775496477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.9, y: 17, z: 0}
+  m_LocalPosition: {x: -40, y: 20, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 1617387153}
@@ -12146,8 +12146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc001b866928e4fbca9451e2d0ed9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   healthUI: {fileID: 1690418590}
 --- !u!50 &1775496482
 Rigidbody2D:
@@ -12703,7 +12703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971806279}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -39.9, y: 3.1072056, z: -8.566406}
+  m_LocalPosition: {x: -46.8, y: 3.1, z: -8.566406}
   m_LocalScale: {x: 51.94814, y: 2.6749997, z: 1}
   m_Children: []
   m_Father: {fileID: 717151339}
@@ -12882,7 +12882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985914975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.7, y: -15.5, z: 0}
+  m_LocalPosition: {x: -40, y: -20, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 949240469}
@@ -12927,8 +12927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc001b866928e4fbca9451e2d0ed9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   healthUI: {fileID: 1145190364}
 --- !u!50 &1985914980
 Rigidbody2D:

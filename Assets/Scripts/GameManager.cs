@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     Vector3 position;
     private int shipCounter = 0, itemCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
-    private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f;
+    private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
     private Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
@@ -71,8 +71,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         spawnTimer += Time.deltaTime;
+        setSpawnTimer += Time.deltaTime;
         shipTimer += Time.deltaTime;
-        if(spawnTimer >= 5.0f)
+
+        if (setSpawnTimer >= 15.0f)
+        {
+            SetSpawnRate();
+            setSpawnTimer = 0.0f;
+        }
+
+        if(spawnTimer >= spawnRate)
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             SpawnSwarm();
@@ -102,6 +110,18 @@ public class GameManager : MonoBehaviour
 
                 StartCoroutine(EndWait());
             }
+        }
+    }
+
+    public void SetSpawnRate()
+    {
+        if (spawnRate > 1)
+        {
+            spawnRate -= 0.25f;
+        }
+        else
+        {
+            spawnRate = 1;
         }
     }
 
