@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwarmMovement : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed, turnSpeed;
     private int target, ship;
     private Vector3 targetPosition;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
@@ -12,6 +12,7 @@ public class SwarmMovement : MonoBehaviour
     private Transform pointsSpawn;
     public bool nearColonyShip;
     public GameObject colonyShip;
+    public Sprite attackPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +36,18 @@ public class SwarmMovement : MonoBehaviour
         if (target == 0) //player is target
         {
             targetPosition = player.transform.position;
-            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+            gameObject.GetComponent<SpriteRenderer>().sprite = attackPlayer;
         }
         else //ship is target
         {
             ChooseShip();
         }
 
+        Vector3 toTarget = targetPosition - transform.position;
+
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-       // SpreadOut();
+        transform.up = targetPosition - transform.position;
+        // SpreadOut();
     }
 
     public void SpreadOut()
