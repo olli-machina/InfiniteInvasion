@@ -22,6 +22,10 @@ public class ColonyShipScript : MonoBehaviour
             GameManager.singleton.shipsLeft -= 1;
             Destroy(gameObject);
         }
+        else if ((health/maxHealth) <= 0.8)
+        {
+
+        }
     }
 
     public void UpdateHealth()

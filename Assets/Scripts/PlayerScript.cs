@@ -50,11 +50,11 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyUp("space"))
         {
             //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
-            if (inRepair)
-                health += 1.5f;
+            //if (inRepair)
+                //health += 1.5f;
         }
 
-            if (health >= 10)
+        if (health >= 10)
         {
             health = 10;
             inRepair = false;
