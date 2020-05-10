@@ -1126,6 +1126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatLevel: 0
   radioBall: {fileID: 296682133}
+  messageBorder: {fileID: 792844935}
+  message: {fileID: 2106141179}
 --- !u!61 &389154410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1539,6 +1541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatLevel: 0
   radioBall: {fileID: 296682133}
+  messageBorder: {fileID: 792844935}
+  message: {fileID: 584451076}
 --- !u!61 &503233496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1974,7 +1978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &584451077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3114,7 +3118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &792844936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3816,6 +3820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatLevel: 0
   radioBall: {fileID: 296682133}
+  messageBorder: {fileID: 792844935}
+  message: {fileID: 1784553803}
 --- !u!61 &949240472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3933,7 +3939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &987651117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11033,6 +11039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threatLevel: 0
   radioBall: {fileID: 296682133}
+  messageBorder: {fileID: 792844935}
+  message: {fileID: 987651116}
 --- !u!61 &1617387155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11822,7 +11830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1784553804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12926,7 +12934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106141180
 RectTransform:
   m_ObjectHideFlags: 0

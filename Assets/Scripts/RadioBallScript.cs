@@ -20,7 +20,11 @@ public class RadioBallScript : MonoBehaviour
 
     public void IncomingMessage()
     {
-        //anim.Stop("RadioDefault");
         anim.Play("RadioIncoming");
+    }
+
+    public void EndMessage()
+    {
+        anim.Play("RadioDefault");
     }
 }
