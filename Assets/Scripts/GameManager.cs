@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     Transform swarmSpawn, meteorSpawn;
     Vector3 position;
     private int shipCounter = 0, itemCounter = 0;
-    public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
+    public int score, randShipNumber = 0, randomTime, shipsLeft = 4, itemMaxCounter = 0;
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
     private Text scoreText;
@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour
 
     public void ItemDrop(int points, GameObject enemy)
     {
+        Debug.Log(itemMaxCounter);
         itemCounter += points;
         if(itemCounter >= 10)
         {
@@ -143,27 +144,37 @@ public class GameManager : MonoBehaviour
                    itemCounter = 0;
             else
             {
-                var randomChance = UnityEngine.Random.Range(0, 100);
-                if (randomChance < 5) //5% chance enemy drops full directional
+                if (itemMaxCounter < 5)
                 {
-                    var FD = Instantiate(fulldirectional, enemy.transform.position, Quaternion.identity);
-                    FD.name = "FullDirectional";
+                    var randomChance = UnityEngine.Random.Range(0, 100);
+                    if (randomChance < 5) //5% chance enemy drops full directional
+                    {
+                        var FD = Instantiate(fulldirectional, enemy.transform.position, Quaternion.identity);
+                        FD.name = "FullDirectional";
+                        itemMaxCounter++;
+                    }
+                    else if (randomChance < 10)// 10% chance enemy drops instant fix
+                    {
+                        var IF = Instantiate(instantFix, enemy.transform.position, Quaternion.identity);
+                        IF.name = "InstantFix";
+                        itemMaxCounter++;
+                    }
+                    else if (randomChance < 15) //15% chance enemy drops shotgun
+                    {
+                        var SG = Instantiate(shotgun, enemy.transform.position, Quaternion.identity);
+                        SG.name = "Shotgun";
+                        itemMaxCounter++;
+                    }
+                    else if (randomChance < 25) //25% chance enemy drops double shot
+                    {
+                        var DS = Instantiate(doubleshot, enemy.transform.position, Quaternion.identity);
+                        DS.name = "DoubleShot";
+                        itemMaxCounter++;
+                    }
+
                 }
-                else if(randomChance < 10)// 10% chance enemy drops instant fix
-                {
-                    var IF = Instantiate(instantFix, enemy.transform.position, Quaternion.identity);
-                    IF.name = "InstantFix";
-                }
-                else if (randomChance < 15) //15% chance enemy drops shotgun
-                {
-                    var SG = Instantiate(shotgun, enemy.transform.position, Quaternion.identity);
-                    SG.name = "Shotgun";
-                }
-                else if (randomChance < 25) //25% chance enemy drops double shot
-                {
-                    var DS = Instantiate(doubleshot, enemy.transform.position, Quaternion.identity);
-                    DS.name = "DoubleShot";
-                }
+                else
+                    itemCounter = 0;
             }
         }
     }

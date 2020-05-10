@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SwarmMovement : MonoBehaviour
 {
     public float moveSpeed, turnSpeed;
-    private int target, ship;
+    private int target, ship, powerUpLimit = 5;
     private Vector3 targetPosition;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;
@@ -30,7 +30,6 @@ public class SwarmMovement : MonoBehaviour
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
-        //anim = GetComponent<Animation>();
         animController = GetComponent<Animator>();
     }
 
@@ -52,7 +51,6 @@ public class SwarmMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
         transform.up = targetPosition - transform.position;
-        // SpreadOut();
     }
 
     public void SpreadOut()
@@ -209,8 +207,6 @@ public class SwarmMovement : MonoBehaviour
 
     void Swarm(Vector3 dist)
     {
-        Debug.Log("Move");
-        
         transform.position += dist * Time.deltaTime;
     }
 

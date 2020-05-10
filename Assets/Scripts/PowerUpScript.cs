@@ -25,7 +25,9 @@ public class PowerUpScript : MonoBehaviour
             if (!ps.hasPowerUp)
             {
                 ps.ActivatePowerUp(gameObject.name);
+                GameManager.singleton.itemMaxCounter--;
                 Destroy(gameObject);
+                Debug.Log("Subtract to: " + GameManager.singleton.itemMaxCounter);
             }
             else
             {

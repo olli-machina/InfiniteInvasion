@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (newVelocity != Vector2.zero)
             rb.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward, newVelocity), Time.fixedDeltaTime * turnSpeed));
-            //rb.MoveRotation(Quaternion.LookRotation(Vector3.forward, newVelocity));
     }
 
     void OnCollisionEnter2D(Collision2D col)

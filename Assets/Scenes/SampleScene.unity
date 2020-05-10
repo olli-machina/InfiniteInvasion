@@ -11995,6 +11995,7 @@ MonoBehaviour:
   randShipNumber: 0
   randomTime: 0
   shipsLeft: 4
+  itemMaxCounter: 0
   spawnPoint1: {x: 4, y: -0.75, z: 0}
   spawnPoint2: {x: 1.8, y: 0.6, z: 0}
   spawnPoint3: {x: 0, y: 3, z: 0}
@@ -13951,6 +13952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 3473542671939702400, guid: 42703c57c8fb2ff4d88ac89b381ccadf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3473542671939702413, guid: 42703c57c8fb2ff4d88ac89b381ccadf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14019,6 +14025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DoubleShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823573366396669312, guid: 83762314588fc274ebb675731ddd3c1f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3823573366396669325, guid: 83762314588fc274ebb675731ddd3c1f,
         type: 3}
@@ -14144,6 +14155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FullDirectional
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123930553899628275, guid: 859a6090b85021f47a85a8dadc6f1ad7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -14312,6 +14328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InstantFix
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598449910604842948, guid: 6bc3daf99bd761f4fba47328cbb863b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc3daf99bd761f4fba47328cbb863b6, type: 3}
