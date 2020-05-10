@@ -147,28 +147,28 @@ public class GameManager : MonoBehaviour
                 if (itemMaxCounter < 5)
                 {
                     var randomChance = UnityEngine.Random.Range(0, 100);
-                    if (randomChance < 5) //5% chance enemy drops full directional
+                    if (randomChance < 2) //2% chance enemy drops full directional
                     {
                         var FD = Instantiate(fulldirectional, enemy.transform.position, Quaternion.identity);
                         FD.name = "FullDirectional";
+                        itemMaxCounter++;
+                    }
+                    else if (randomChance < 5) //5% chance enemy drops shotgun
+                    {
+                        var SG = Instantiate(shotgun, enemy.transform.position, Quaternion.identity);
+                        SG.name = "Shotgun";
+                        itemMaxCounter++;
+                    }
+                    else if (randomChance < 7) //7% chance enemy drops double shot
+                    {
+                        var DS = Instantiate(doubleshot, enemy.transform.position, Quaternion.identity);
+                        DS.name = "DoubleShot";
                         itemMaxCounter++;
                     }
                     else if (randomChance < 10)// 10% chance enemy drops instant fix
                     {
                         var IF = Instantiate(instantFix, enemy.transform.position, Quaternion.identity);
                         IF.name = "InstantFix";
-                        itemMaxCounter++;
-                    }
-                    else if (randomChance < 15) //15% chance enemy drops shotgun
-                    {
-                        var SG = Instantiate(shotgun, enemy.transform.position, Quaternion.identity);
-                        SG.name = "Shotgun";
-                        itemMaxCounter++;
-                    }
-                    else if (randomChance < 25) //25% chance enemy drops double shot
-                    {
-                        var DS = Instantiate(doubleshot, enemy.transform.position, Quaternion.identity);
-                        DS.name = "DoubleShot";
                         itemMaxCounter++;
                     }
 
