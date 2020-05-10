@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShipRadarScript : MonoBehaviour
 {
     public int threatLevel;
+    public GameObject radioBall;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class ShipRadarScript : MonoBehaviour
     {
         if (threatLevel >= 5)
         {
-            //Show S.O.S. and set delay
+            radioBall.GetComponent<RadioBallScript>().IncomingMessage();
         }
     }
 
@@ -28,6 +29,7 @@ public class ShipRadarScript : MonoBehaviour
             collision.gameObject.GetComponent<SwarmMovement>().nearColonyShip = true;
             collision.gameObject.GetComponent<SwarmMovement>().colonyShip = gameObject;
             threatLevel += 1;
+            Debug.Log("Threat Level: " + threatLevel);
         }
     }
 }

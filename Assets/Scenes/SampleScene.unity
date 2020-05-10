@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 296682136}
   - component: {fileID: 296682135}
   - component: {fileID: 296682137}
+  - component: {fileID: 296682138}
   m_Layer: 5
   m_Name: RadioBall
   m_TagString: Untagged
@@ -817,6 +818,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &296682138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296682133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd45ddea0238e034c9119b4c8ad88618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &298783629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatLevel: 0
+  radioBall: {fileID: 296682133}
 --- !u!61 &389154410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1524,6 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatLevel: 0
+  radioBall: {fileID: 296682133}
 --- !u!61 &503233496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3800,6 +3815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatLevel: 0
+  radioBall: {fileID: 296682133}
 --- !u!61 &949240472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11016,6 +11032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threatLevel: 0
+  radioBall: {fileID: 296682133}
 --- !u!61 &1617387155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11050,7 +11067,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617387152}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

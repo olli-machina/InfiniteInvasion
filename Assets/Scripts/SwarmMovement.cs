@@ -80,7 +80,6 @@ public class SwarmMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.tag);
         if(col.tag == "Player")
         {
             player.GetComponent<PlayerScript>().DamageHealth(1);
