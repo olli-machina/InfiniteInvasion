@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
 
     private GameObject Player, Meteor;
-    public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember;
+    public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent;
+    Transform swarmSpawn, meteorSpawn;
     Vector3 position;
     private int shipCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
+        swarmSpawn = SwarmParent.transform;
+        meteorSpawn = MeteorParent.transform;
         randomTime = UnityEngine.Random.Range(0, 2);
         if(randomTime == 0)
             randShipDuration = 60f;
@@ -121,7 +124,7 @@ public class GameManager : MonoBehaviour
         else if (meteorSprite == 4)
             Meteor = mPrefab5;
 
-        Instantiate(Meteor, position, Quaternion.identity);
+        Instantiate(Meteor, position, Quaternion.identity, meteorSpawn);
     }
 
     //public int SetShip()
@@ -146,16 +149,16 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSwarm()
     {
-        Instantiate(SwarmMember, spawnPoint1, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint2, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint3, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint4, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint5, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint6, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint7, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint8, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint9, Quaternion.identity);
-        Instantiate(SwarmMember, spawnPoint10, Quaternion.identity);
+        Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint3, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint4, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint5, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint6, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint7, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint8, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint9, Quaternion.identity, swarmSpawn);
+        Instantiate(SwarmMember, spawnPoint10, Quaternion.identity, swarmSpawn);
     }
 
     public void CheckScores()

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ColonyPoints : MonoBehaviour
 {
-    public GameObject points;
+    public GameObject points, pointsParent;
+    private Transform pointsSpawn;
     private Vector3 pointsTransform;
     private float shipTimer = 0.0f;
 
@@ -13,6 +14,7 @@ public class ColonyPoints : MonoBehaviour
     void Start()
     {
         pointsTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1);
+        pointsSpawn = pointsParent.transform;
     }
 
     // Update is called once per frame
@@ -29,6 +31,6 @@ public class ColonyPoints : MonoBehaviour
 
     void ShowPoints()
     {
-        Instantiate(points, pointsTransform, Quaternion.identity);
+        Instantiate(points, pointsTransform, Quaternion.identity, pointsSpawn);
     }
 }
