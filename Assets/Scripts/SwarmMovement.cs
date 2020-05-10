@@ -27,6 +27,7 @@ public class SwarmMovement : MonoBehaviour
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
+       
     }
 
     // Update is called once per frame
@@ -88,65 +89,119 @@ public class SwarmMovement : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Player();
+        }
+        else if (collision.gameObject.tag == "Bullet")
+        {
+            Bullet();
+        }
+        else if (collision.gameObject.tag == "Meteor")
+        {
+            Meteor();
+        }
+        else if (collision.gameObject.tag == "Ship")
+        {
+            collision.gameObject.GetComponent<ColonyShipScript>().health -= 1;
+            collision.gameObject.GetComponent<ColonyShipScript>().UpdateHealth();
+            Ship();
+        }
+        else if (collision.gameObject.tag == "Swarm")
+        {
+            Vector3 dist = transform.position - collision.gameObject.transform.position;
+            Swarm(dist);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Player")
         {
-            Debug.Log("Player");
-            player.GetComponent<PlayerScript>().DamageHealth(1);
-            cameraShake.GetComponent<CameraShake>().Shake();
-            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
-            {
-                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
-            }
-            Destroy(gameObject);
+            Player();
         }
         else if (col.tag == "Bullet")
         {
-            if (target == 0)
-            {
-                GameManager.singleton.ChangeScore(25);
-                GameManager.singleton.ItemDrop(2);
-            }
-            else
-            {
-                GameManager.singleton.ChangeScore(10);
-                GameManager.singleton.ItemDrop(1);
-            }
-
-            ShowPoints();
-
-            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
-            {
-                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
-            }
-            Destroy(gameObject);
+            Bullet();
             Destroy(col);
         }
         else if (col.tag == "Meteor")
         {
-            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
-            {
-                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
-            }
-            Destroy(gameObject);
+            Meteor();
         }
         else if (col.tag == "Ship")
         {
             col.GetComponent<ColonyShipScript>().health -= 1;
             col.GetComponent<ColonyShipScript>().UpdateHealth();
-            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
-            {
-                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
-            }
-            Destroy(gameObject);
+            Ship();
         }
         else if(col.tag == "Swarm")
         {
-            Debug.Log("Move");
             Vector3 dist = transform.position - col.transform.position;
-            transform.position += dist * Time.deltaTime;
+            Swarm(dist);
         }
+    }
+
+
+    void Player()
+    {
+        player.GetComponent<PlayerScript>().DamageHealth(1);
+        cameraShake.GetComponent<CameraShake>().Shake();
+        if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
+        {
+            colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+        }
+        Destroy(gameObject);
+    }
+
+    void Bullet()
+    {
+        if (target == 0)
+        {
+            GameManager.singleton.ChangeScore(25);
+            GameManager.singleton.ItemDrop(2);
+        }
+        else
+        {
+            GameManager.singleton.ChangeScore(10);
+            GameManager.singleton.ItemDrop(1);
+        }
+
+        ShowPoints();
+
+        if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
+        {
+            colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+        }
+        Destroy(gameObject);
+    }
+
+    void Meteor()
+    {
+        if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
+        {
+            colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+        }
+        Destroy(gameObject);
+    }
+
+    void Ship()
+    {
+
+        if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
+        {
+            colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+        }
+        Destroy(gameObject);
+    }
+
+    void Swarm(Vector3 dist)
+    {
+        Debug.Log("Move");
+        
+        transform.position += dist * Time.deltaTime;
     }
 
     void ShowPoints()

@@ -172,8 +172,10 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSwarm()
     {
-        Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn);
-        Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn);
+        GameObject swarmA = Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn) as GameObject;
+        swarmA.transform.position = transform.position + Vector3.zero;
+        GameObject swarmB = Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn) as GameObject;
+        swarmB.transform.position = transform.position + Vector3.zero;
         Instantiate(SwarmMember, spawnPoint3, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint4, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint5, Quaternion.identity, swarmSpawn);
