@@ -51,7 +51,16 @@ public class PlayerScript : MonoBehaviour
 
         if (inRepair)
         {
+            healTime += Time.deltaTime;
             invunerable = true;
+
+            if (healTime >= 0.5f)
+            {
+                healthWedges[(int)health].SetActive(true);
+                damageWedges[(int)health].SetActive(false);
+                health += 1f;
+                healTime = 0.0f;
+            }
         }
 
         if (health >= 10)
