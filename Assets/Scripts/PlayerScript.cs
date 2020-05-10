@@ -64,6 +64,17 @@ public class PlayerScript : MonoBehaviour
         damageOrb.SetActive(false);
     }
 
+    public void FullHeal()
+    {
+        for (int i = 0; i < healthWedges.Length; i++)
+        {
+            healthWedges[i].SetActive(true);
+            damageWedges[i].SetActive(false);
+        }
+        health = 10;
+        inRepair = false;
+    }
+
     public void DamageHealth(float damage)
     {
         if (health > 0)
