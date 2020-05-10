@@ -101,13 +101,16 @@ public class SwarmMovement : MonoBehaviour
             if (target == 0)
             {
                 GameManager.singleton.ChangeScore(25);
+                GameManager.singleton.ItemDrop(2);
             }
             else
             {
                 GameManager.singleton.ChangeScore(10);
+                GameManager.singleton.ItemDrop(1);
             }
 
             ShowPoints();
+
             if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
             {
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;

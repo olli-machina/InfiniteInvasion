@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
     public static GameManager singleton;
 
     private GameObject Player, Meteor;
-    public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent;
+    public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent,
+        shotgun, doubleshot, fulldirectional;
     Transform swarmSpawn, meteorSpawn;
     Vector3 position;
-    private int shipCounter = 0;
+    private int shipCounter = 0, itemCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f;
     private GameObject scoreTextObject;
@@ -100,6 +101,36 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ItemDrop(int points)
+    {
+        itemCounter += points;
+        Debug.Log(itemCounter);
+        if(itemCounter >= 10)
+        {
+            var randomDrop = UnityEngine.Random.Range(0, 2);
+            Debug.Log("Drop: " + randomDrop);
+            if (randomDrop == 0)
+                   itemCounter = 0;
+            else
+            {
+                var randomChance = UnityEngine.Random.Range(0, 100);
+                Debug.Log("Chance: " + randomChance);
+                if (randomChance < 50) //5% chance enemy drops full directional
+                {
+                    Instantiate(fulldirectional, gameObject.transform.position, Quaternion.identity);
+                }
+                else if (randomChance < 90) //10% chance enemy drops shotgun
+                {
+                    Instantiate(shotgun, gameObject.transform.position, Quaternion.identity);
+                }
+                else if (randomChance < 100) //25% chance enemy drops double shot
+                {
+                    Instantiate(doubleshot, gameObject.transform.position, Quaternion.identity);
+                }
+            }
+        }
+    }
+
     public void ChangeScore(int addPoints)
     {
         score += addPoints;
@@ -129,26 +160,6 @@ public class GameManager : MonoBehaviour
 
         Instantiate(Meteor, position, Quaternion.identity, meteorSpawn);
     }
-
-    //public int SetShip()
-    //{
-    //    if(randShipNumber == 0)
-    //    {
-    //        if()
-    //    }
-
-    //    if (shipCounter > 100)
-    //    {
-    //        shipCounter = 0;
-    //        return 4;
-    //    }
-    //    else if (shipCounter > 75)
-    //        return 3;
-    //    else if (shipCounter > 50)
-    //        return 2;
-    //    else
-    //        return 1;
-    //}
 
     public void SpawnSwarm()
     {
