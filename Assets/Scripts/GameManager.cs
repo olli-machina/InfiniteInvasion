@@ -135,7 +135,6 @@ public class GameManager : MonoBehaviour
 
     public void ItemDrop(int points, GameObject enemy)
     {
-        Debug.Log(itemMaxCounter);
         itemCounter += points;
         if(itemCounter >= 10)
         {
