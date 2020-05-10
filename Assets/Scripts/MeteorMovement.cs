@@ -72,6 +72,7 @@ public class MeteorMovement : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);
         }
 

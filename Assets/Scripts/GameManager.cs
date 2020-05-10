@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager singleton;
 
-    private GameObject Player, Meteor;
+    private GameObject Player;
     public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent,
         shotgun, doubleshot, fulldirectional;
     Transform swarmSpawn, meteorSpawn;
@@ -148,17 +148,15 @@ public class GameManager : MonoBehaviour
 
         var meteorSprite = UnityEngine.Random.Range(0, 4);
         if (meteorSprite == 0)
-            Meteor = mPrefab1;
+            Instantiate(mPrefab1, position, Quaternion.identity, meteorSpawn);
         else if (meteorSprite == 1)
-            Meteor = mPrefab2;
+            Instantiate(mPrefab2, position, Quaternion.identity, meteorSpawn);
         else if (meteorSprite == 2)
-            Meteor = mPrefab3;
+            Instantiate(mPrefab3, position, Quaternion.identity, meteorSpawn);
         else if (meteorSprite == 3)
-            Meteor = mPrefab4;
-        else if (meteorSprite == 4)
-            Meteor = mPrefab5;
-
-        Instantiate(Meteor, position, Quaternion.identity, meteorSpawn);
+            Instantiate(mPrefab4, position, Quaternion.identity, meteorSpawn);
+        else
+            Instantiate(mPrefab5, position, Quaternion.identity, meteorSpawn);
     }
 
     public void SpawnSwarm()
