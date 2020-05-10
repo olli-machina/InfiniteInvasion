@@ -43,19 +43,18 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 CheckWeapon();
-                //GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
             }
         }
 
-        /*
+
         if (Input.GetKeyUp("space"))
         {
-            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             if (inRepair)
-                health += 0.5f;
-        */
-        
-        if (health >= 10)
+                health += 1.5f;
+        }
+
+            if (health >= 10)
         {
             health = 10;
             inRepair = false;
