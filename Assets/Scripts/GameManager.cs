@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject Player;
     public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent,
-        shotgun, doubleshot, fulldirectional, gameOver1, gameOver2;
+        shotgun, doubleshot, fulldirectional, instantFix, gameOver1, gameOver2;
     Transform swarmSpawn, meteorSpawn;
     Vector3 position;
     private int shipCounter = 0, itemCounter = 0;
@@ -128,7 +128,12 @@ public class GameManager : MonoBehaviour
                     var FD = Instantiate(fulldirectional, gameObject.transform.position, Quaternion.identity);
                     FD.name = "FullDirectional";
                 }
-                else if (randomChance < 10) //10% chance enemy drops shotgun
+                else if(randomChance < 10)// 10% chance enemy drops instant fix
+                {
+                    var IF = Instantiate(instantFix, gameObject.transform.position, Quaternion.identity);
+                    IF.name = "InstantFix";
+                }
+                else if (randomChance < 15) //15% chance enemy drops shotgun
                 {
                     var SG = Instantiate(shotgun, gameObject.transform.position, Quaternion.identity);
                     SG.name = "Shotgun";
