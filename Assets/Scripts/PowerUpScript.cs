@@ -32,5 +32,9 @@ public class PowerUpScript : MonoBehaviour
 
             }
         }
+        else
+        {
+
+        }
     }
 }

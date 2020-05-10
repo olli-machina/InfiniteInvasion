@@ -104,28 +104,28 @@ public class GameManager : MonoBehaviour
     public void ItemDrop(int points)
     {
         itemCounter += points;
-        Debug.Log(itemCounter);
         if(itemCounter >= 10)
         {
             var randomDrop = UnityEngine.Random.Range(0, 2);
-            Debug.Log("Drop: " + randomDrop);
             if (randomDrop == 0)
                    itemCounter = 0;
             else
             {
                 var randomChance = UnityEngine.Random.Range(0, 100);
-                Debug.Log("Chance: " + randomChance);
-                if (randomChance < 50) //5% chance enemy drops full directional
+                if (randomChance < 5) //5% chance enemy drops full directional
                 {
-                    Instantiate(fulldirectional, gameObject.transform.position, Quaternion.identity);
+                    var FD = Instantiate(fulldirectional, gameObject.transform.position, Quaternion.identity);
+                    FD.name = "FullDirectional";
                 }
-                else if (randomChance < 90) //10% chance enemy drops shotgun
+                else if (randomChance < 10) //10% chance enemy drops shotgun
                 {
-                    Instantiate(shotgun, gameObject.transform.position, Quaternion.identity);
+                    var SG = Instantiate(shotgun, gameObject.transform.position, Quaternion.identity);
+                    SG.name = "Shotgun";
                 }
-                else if (randomChance < 100) //25% chance enemy drops double shot
+                else if (randomChance < 25) //25% chance enemy drops double shot
                 {
-                    Instantiate(doubleshot, gameObject.transform.position, Quaternion.identity);
+                    var DS = Instantiate(doubleshot, gameObject.transform.position, Quaternion.identity);
+                    DS.name = "DoubleShot";
                 }
             }
         }
