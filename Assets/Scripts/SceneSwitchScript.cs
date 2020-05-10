@@ -17,6 +17,11 @@ public class SceneSwitchScript : MonoBehaviour
         
     }
 
+    public void LoadStart()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
+
     public void LoadGame()
     {
         SceneManager.LoadScene("SampleScene");

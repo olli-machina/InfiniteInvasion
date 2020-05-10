@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     private int shipCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4;
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f;
-    public Text scoreText;
+    private GameObject scoreTextObject;
+    private Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
                     spawnPoint2 = new Vector3(0.58f, -2.74f, 0.0f),
                     spawnPoint3 = new Vector3(0.97f, 0.23f, 0.0f),
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (singleton == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             singleton = this;
         }
 
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreTextObject = GameObject.Find("Score");
+        scoreText = scoreTextObject.GetComponent<Text>();
         Player = GameObject.Find("Player");
         swarmSpawn = SwarmParent.transform;
         meteorSpawn = MeteorParent.transform;
