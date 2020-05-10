@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
     private bool doubleShot = false, shotgun = false, fullDirectional = false;
-    public GameObject bulletPrefab;
+    public GameObject bulletPrefab, UIFD, UIDS, UISG;
     private GameObject cameraShake;
     Transform fireLocation;
     FireBullet fireRange;
@@ -129,12 +129,15 @@ public class PlayerScript : MonoBehaviour
         {
             case 0:
                 doubleShot = true;
+                UIDS.SetActive(true);
                 break;
             case 1:
                 shotgun = true;
+                UISG.SetActive(true);
                 break;
             case 2:
                 fullDirectional = true;
+                UIFD.SetActive(true);
                 break;
         }
 
@@ -143,12 +146,15 @@ public class PlayerScript : MonoBehaviour
         {
             case 0:
                 doubleShot = false;
+                UIDS.SetActive(false);
                 break;
             case 1:
                 shotgun = false;
+                UISG.SetActive(false);
                 break;
             case 2:
                 fullDirectional = false;
+                UIFD.SetActive(false);
                 break;
         }
         hasPowerUp = false;
