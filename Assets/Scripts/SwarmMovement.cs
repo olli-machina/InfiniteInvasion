@@ -37,45 +37,49 @@ public class SwarmMovement : MonoBehaviour
         }
         else //ship is target
         {
-
-            if (ship == 0)
-            {
-                if (ship1 != null)
-                    targetPosition = ship1.transform.position;
-                else
-                    ship++;
-            }
-            if (ship == 1)
-            {
-                if (ship2 != null)
-                    targetPosition = ship2.transform.position;
-                else
-                    ship++;
-            }
-            if (ship == 2)
-            {
-                if (ship3 != null)
-                    targetPosition = ship3.transform.position;
-                else
-                    ship++;
-
-            }
-            if (ship == 3)
-            {
-                if (ship4 != null)
-                    targetPosition = ship4.transform.position;
-                else
-                    ship = 0;
-            }
+            ChooseShip();
         }
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-        SpreadOut();
+       // SpreadOut();
     }
 
     public void SpreadOut()
     {
         
+    }
+
+    public void ChooseShip()
+    {
+        if (ship == 0)
+        {
+            if (ship1 != null)
+                targetPosition = ship1.transform.position;
+            else
+                ship++;
+        }
+        if (ship == 1)
+        {
+            if (ship2 != null)
+                targetPosition = ship2.transform.position;
+            else
+                ship++;
+        }
+        if (ship == 2)
+        {
+            if (ship3 != null)
+                targetPosition = ship3.transform.position;
+            else
+                ship++;
+
+        }
+        if (ship == 3)
+        {
+            if (ship4 != null)
+                targetPosition = ship4.transform.position;
+            else
+                ship = 0;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

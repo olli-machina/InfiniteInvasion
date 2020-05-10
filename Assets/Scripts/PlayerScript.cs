@@ -51,12 +51,17 @@ public class PlayerScript : MonoBehaviour
 
         if (health >= 10)
         {
-            health = 10;
-            inRepair = false;
-            GetComponent<PlayerMovement>().enabled = true;
-            healthOrb.SetActive(true);
-            damageOrb.SetActive(false);
+            SetFixed();
         }
+    }
+
+    public void SetFixed()
+    {
+        health = 10;
+        inRepair = false;
+        GetComponent<PlayerMovement>().enabled = true;
+        healthOrb.SetActive(true);
+        damageOrb.SetActive(false);
     }
 
     public void DamageHealth(float damage)
@@ -75,7 +80,7 @@ public class PlayerScript : MonoBehaviour
             healthOrb.SetActive(false);
             inRepair = true;
             ForceRepair();
-            Debug.Log("Repairing" + inRepair);
+            //Debug.Log("Repairing" + inRepair);
         }
     }
 
@@ -132,7 +137,7 @@ public class PlayerScript : MonoBehaviour
                 fullDirectional = true;
                 break;
         }
-        Debug.Log(doubleShot);
+
         yield return new WaitForSeconds(time);
         switch (powerUp)
         {
