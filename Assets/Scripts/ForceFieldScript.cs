@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class ForceFieldScript : MonoBehaviour
 {
-    public GameObject meteor;
+    public Transform meteor;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
+        anim.Play("ForceField");
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-
+        transform.up = meteor.transform.position - transform.position;
     }
 
     void DestroyForceField()

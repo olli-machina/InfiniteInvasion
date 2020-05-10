@@ -10,7 +10,7 @@ public class MeteorMovement : MonoBehaviour
     public float meteorSpeed;
     Rigidbody2D rb;
     public GameObject forceField;
-    private GameObject spawnedField;
+    private Vector3 spawnRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -80,8 +80,8 @@ public class MeteorMovement : MonoBehaviour
 
         else if (col.gameObject.tag == "Ship")
         {
-            spawnedField = GameObject.Instantiate(forceField, transform.position, Quaternion.identity);
-            spawnedField.GetComponent<ForceFieldScript>().meteor = gameObject;
+            GameObject spawnedField = (GameObject)Instantiate(forceField, transform.position, Quaternion.identity);
+            spawnedField.GetComponent<ForceFieldScript>().meteor = gameObject.GetComponent<Transform>();
             flipped = !flipped;
         }
 
