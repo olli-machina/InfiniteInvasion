@@ -5,14 +5,15 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     private Transform player;
-    public float xMargin = 1f, yMargin = 1f, xSmooth = 8f, ySmooth = 8f;
-    public float xBounds = 20.0f, yBounds = 20.0f;
-    public Vector2 minBounds, maxBounds;
+    public float xMargin = 1f, yMargin = 1f, smooth = 8f;//xSmooth = 8f, ySmooth = 8f;
+    public float xBounds = 20.0f, yBounds = 20.0f, moveSpeed = 30.0f;
+    public Vector2 minBounds, maxBounds, pm;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        pm = player.GetComponent<PlayerMovement>().newVelocity;
     }
 
     // Update is called once per frame
@@ -27,18 +28,20 @@ public class CameraScript : MonoBehaviour
 
     void FollowPlayer()
     {
-        float targetX = transform.position.x;
-        float targetY = transform.position.y;
-        if (CheckX())
-            targetX = Mathf.Lerp(transform.position.x, player.position.x, xSmooth * Time.deltaTime);
+        float step = moveSpeed * Time.fixedDeltaTime;
+        Vector2 target = transform.position;
+        //float targetX = transform.position.x;
+        //float targetY = transform.position.y;
+        if (CheckX() || CheckY())
+            target = Vector2.Lerp(transform.position, player.position,step);// ref pm, smooth * Time.fixedDeltaTime);  //xSmooth * Time.deltaTime);
 
-        if (CheckY())
-            targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
+        //if (CheckY())
+        //    targetY = Vector2.SmoothDamp(transform.position.y, player.position.y, ref pm.y, smooth);
 
-        targetX = Mathf.Clamp(targetX, minBounds.x, maxBounds.x);
-        targetY = Mathf.Clamp(targetY, minBounds.y, maxBounds.y);
+        target.x = Mathf.Clamp(target.x, minBounds.x, maxBounds.x);
+        target.y = Mathf.Clamp(target.y, minBounds.y, maxBounds.y);
 
-        transform.position = new Vector3(targetX, targetY, transform.position.z);
+        transform.position = new Vector3(target.x, target.y, transform.position.z);
     }
 
     public bool CheckX()

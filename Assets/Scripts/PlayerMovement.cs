@@ -8,11 +8,8 @@ public class PlayerMovement : MonoBehaviour
     float xMove = 10f;
     public float speed, turnSpeed;
     float yMove = 10f;
-    //public float boundsLeft = -8.5f;
-    //public float boundsRight = 8.5f;
-    //public float boundsUp = -4.5f;
-    //public float boundsDown = -4.45f;
     Rigidbody2D rb;
+    public Vector2 newVelocity;
 
     void Start()
     {
@@ -38,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        Vector2 newVelocity = new Vector2(xMove, yMove);
+        newVelocity = new Vector2(xMove, yMove);
         rb.velocity = newVelocity;
 
         if (newVelocity != Vector2.zero)

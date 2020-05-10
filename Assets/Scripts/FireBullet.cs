@@ -73,7 +73,7 @@ public class FireBullet : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, spawnLoc[0].position, transform.rotation) as GameObject; //north
+        GameObject bullet = Instantiate(bulletPrefab, spawnLoc[1].position, transform.rotation) as GameObject; //north
 
     }
 
