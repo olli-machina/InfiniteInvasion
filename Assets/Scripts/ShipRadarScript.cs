@@ -60,7 +60,10 @@ public class ShipRadarScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<SwarmMovement>().nearColonyShip = false;
             collision.gameObject.GetComponent<SwarmMovement>().colonyShip = null;
-            threatLevel -= 1;
+            if (threatLevel > 0)
+            {
+                threatLevel -= 1;
+            }
         }
     }
 }

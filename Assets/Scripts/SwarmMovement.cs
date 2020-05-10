@@ -88,7 +88,7 @@ public class SwarmMovement : MonoBehaviour
         {
             player.GetComponent<PlayerScript>().DamageHealth(1);
             cameraShake.GetComponent<CameraShake>().Shake();
-            if (nearColonyShip)
+            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
             {
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
             }
@@ -106,7 +106,7 @@ public class SwarmMovement : MonoBehaviour
             }
 
             ShowPoints();
-            if (nearColonyShip)
+            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
             {
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
             }
@@ -115,7 +115,7 @@ public class SwarmMovement : MonoBehaviour
         }
         else if (col.tag == "Meteor")
         {
-            if (nearColonyShip)
+            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
             {
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
             }
@@ -125,7 +125,7 @@ public class SwarmMovement : MonoBehaviour
         {
             col.GetComponent<ColonyShipScript>().health -= 1;
             col.GetComponent<ColonyShipScript>().UpdateHealth();
-            if (nearColonyShip)
+            if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
             {
                 colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
             }
