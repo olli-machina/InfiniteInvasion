@@ -9,6 +9,7 @@ public class SwarmMovement : MonoBehaviour
     private Vector3 targetPosition;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;
+    private Transform pointsSpawn;
     public bool nearColonyShip;
     public GameObject colonyShip;
 
@@ -20,6 +21,7 @@ public class SwarmMovement : MonoBehaviour
         ship2 = GameObject.Find("GOLIATH");
         ship3 = GameObject.Find("JUNO");
         ship4 = GameObject.Find("ORION");
+        pointsSpawn = GameObject.Find("UIPoints").GetComponent<Transform>();
         cameraShake = GameObject.Find("Main Camera");
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
@@ -137,11 +139,11 @@ public class SwarmMovement : MonoBehaviour
     {
         if (target == 0)
         {
-            Instantiate(attackPoints, gameObject.transform.position, Quaternion.identity);
+            Instantiate(attackPoints, gameObject.transform.position, Quaternion.identity, pointsSpawn);
         }
         else
         {
-            Instantiate(basicPoints, gameObject.transform.position, Quaternion.identity);
+            Instantiate(basicPoints, gameObject.transform.position, Quaternion.identity, pointsSpawn);
         }
     }
 }
