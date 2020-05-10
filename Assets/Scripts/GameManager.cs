@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject Player;
     public GameObject mPrefab1, mPrefab2, mPrefab3, mPrefab4, mPrefab5, SwarmMember, SwarmParent, MeteorParent,
-        shotgun, doubleshot, fulldirectional;
+        shotgun, doubleshot, fulldirectional, gameOver1, gameOver2;
     Transform swarmSpawn, meteorSpawn;
     Vector3 position;
     private int shipCounter = 0, itemCounter = 0;
@@ -94,11 +94,22 @@ public class GameManager : MonoBehaviour
         {
             if (setScore == false)
             {
-                setScore = true;
-                SceneManager.LoadScene("EndScreen");
+                setScore = true;                
                 CheckScores();
+
+                gameOver1.SetActive(true);
+                gameOver2.SetActive(true);
+
+                StartCoroutine(EndWait());
             }
         }
+    }
+
+    IEnumerator EndWait()
+    {
+        yield return new WaitForSeconds(3);
+
+        SceneManager.LoadScene("EndScreen");
     }
 
     public void ItemDrop(int points)
