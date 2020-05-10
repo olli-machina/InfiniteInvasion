@@ -12,16 +12,18 @@ public class PlayerScript : MonoBehaviour
     public GameObject healthOrb;
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
-    private bool doubleShot = false, shotgun = true, fullDirectional = false;
+    private bool doubleShot = false, shotgun = false, fullDirectional = false;
     public GameObject bulletPrefab;
     private GameObject cameraShake;
     Transform fireLocation;
+    FireBullet fireRange;
 
     // Start is called before the first frame update
     void Start()
     {
         fireLocation = transform.Find("BulletSpawn");
         cameraShake = GameObject.Find("Main Camera");
+        fireRange = GetComponentInChildren<FireBullet>();
         for (int i = 9; i >= 0; i--)
         {
             damageWedges[i].SetActive(false);
@@ -46,13 +48,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-
-        if (Input.GetKeyUp("space"))
-        {
-            //gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
-            //if (inRepair)
-                //health += 1.5f;
-        }
 
         if (health >= 10)
         {
@@ -159,33 +154,19 @@ public class PlayerScript : MonoBehaviour
         Quaternion newRotation = Quaternion.identity;
         if (doubleShot)
         {
-            Debug.Log(fireLocation.rotation);
-            GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
-            GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
+            fireRange.DoubleShot();
         }
         else if (shotgun)
         {
-            Debug.Log(gameObject.transform.rotation);
-
-            GameObject bullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
-            bullet.transform.Rotate(0f, 0f, -5.0f);
-
-            GameObject dbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 0.5f), fireLocation.position.y, fireLocation.position.z), fireLocation.rotation) as GameObject;
-            dbullet.transform.Rotate(0f, 0f, 5.0f);
-
-            GameObject tbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x + 1.5f), (fireLocation.position.y), fireLocation.position.z), fireLocation.rotation) as GameObject;
-            tbullet.transform.Rotate(0f, 0f, -10.0f);
-
-            GameObject qbullet = Instantiate(bulletPrefab, new Vector3((fireLocation.position.x - 1.5f), (fireLocation.position.y), fireLocation.position.z), fireLocation.rotation) as GameObject;
-            qbullet.transform.Rotate(0f, 0f, 10.0f);
+            fireRange.Shotgun();
         }
-        else if (fullDirectional)
+        else if(fullDirectional)
         {
-            Debug.Log("FD");
+            fireRange.FullDirection();
         }
         else
         {
-            GameObject bullet = Instantiate(bulletPrefab, fireLocation.position, fireLocation.rotation) as GameObject;
+            fireRange.Fire();
         }
     }
 
