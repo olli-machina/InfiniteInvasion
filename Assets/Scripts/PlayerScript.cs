@@ -7,12 +7,13 @@ public class PlayerScript : MonoBehaviour
 {
     public float health = 10, maxHealth = 10,
         shotgunTimer, doubleShotTimer, fullDirectionalTimer;
+    private float healTime = 0.0f;
     public GameObject[] healthWedges;
     public GameObject[] damageWedges;
     public GameObject healthOrb;
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
-    private bool doubleShot = false, shotgun = false, fullDirectional = false;
+    private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false;
     public GameObject bulletPrefab, UIFD, UIDS, UISG, UIS;
     private GameObject cameraShake;
     Transform fireLocation;
@@ -48,6 +49,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if (inRepair)
+        {
+            invunerable = true;
+        }
 
         if (health >= 10)
         {
@@ -59,6 +64,7 @@ public class PlayerScript : MonoBehaviour
     {
         health = 10;
         inRepair = false;
+        invunerable = false;
         GetComponent<PlayerMovement>().enabled = true;
         healthOrb.SetActive(true);
         damageOrb.SetActive(false);
@@ -79,9 +85,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (health > 0)
         {
-            health -= damage;
-            healthWedges[(int)health].SetActive(false);
-            damageWedges[(int)health].SetActive(true);
+            if (!invunerable)
+            {
+                health -= damage;
+                healthWedges[(int)health].SetActive(false);
+                damageWedges[(int)health].SetActive(true);
+            }
             //StartCoroutine(flashRed());
         }
         else if (health <= 0)
@@ -121,11 +130,14 @@ public class PlayerScript : MonoBehaviour
         if(col.gameObject.tag == "Meteor")
         {
             cameraShake.GetComponent<CameraShake>().Shake();
-            health = 0;
-            for (int i = 9; i >= 0; i--)
+            if (!invunerable)
             {
-                healthWedges[i].SetActive(false);
-                damageWedges[i].SetActive(true);
+                health = 0;
+                for (int i = 9; i >= 0; i--)
+                {
+                    healthWedges[i].SetActive(false);
+                    damageWedges[i].SetActive(true);
+                }
             }
             damageOrb.SetActive(true);
             healthOrb.SetActive(false);
