@@ -13,6 +13,8 @@ public class SwarmMovement : MonoBehaviour
     public bool nearColonyShip;
     public GameObject colonyShip;
     public Sprite attackPlayer;
+    public Animation anim;
+    public Animator animController;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,8 @@ public class SwarmMovement : MonoBehaviour
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
-       
+        anim = GetComponent<Animation>();
+        animController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -125,7 +128,6 @@ public class SwarmMovement : MonoBehaviour
         else if (col.tag == "Bullet")
         {
             Bullet();
-            Destroy(col);
         }
         else if (col.tag == "Meteor")
         {
@@ -144,6 +146,13 @@ public class SwarmMovement : MonoBehaviour
         }
     }
 
+    IEnumerator Explosion()
+    {
+        anim.Play("Explosion");
+        animController.SetBool("dead", true);
+        yield return new WaitForSeconds(anim["Explosion"].length);
+        Destroy(gameObject);
+    }
 
     void Player()
     {
@@ -189,7 +198,6 @@ public class SwarmMovement : MonoBehaviour
 
     void Ship()
     {
-
         if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;

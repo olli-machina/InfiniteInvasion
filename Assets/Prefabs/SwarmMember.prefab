@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 311431835854272904}
   - component: {fileID: 7480329069103072925}
   - component: {fileID: 1744214513488224616}
+  - component: {fileID: 6791252380350637630}
+  - component: {fileID: 524111233254546357}
   m_Layer: 0
   m_Name: SwarmMember
   m_TagString: Swarm
@@ -106,6 +108,8 @@ MonoBehaviour:
   nearColonyShip: 0
   colonyShip: {fileID: 0}
   attackPlayer: {fileID: 21300000, guid: b0fa59881d0304947b00d92df55abb06, type: 3}
+  anim: {fileID: 0}
+  animController: {fileID: 0}
 --- !u!61 &311431835854272904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,3 +173,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!111 &6791252380350637630
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345343368937149005}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ed708097585d61f41863e40333731183, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ed708097585d61f41863e40333731183, type: 2}
+  m_WrapMode: 1
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &524111233254546357
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345343368937149005}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1af4c25119f94d47ad8fcaf1cfe6544, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
