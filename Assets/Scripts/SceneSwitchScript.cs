@@ -32,9 +32,19 @@ public class SceneSwitchScript : MonoBehaviour
         SceneManager.LoadScene("CreditsScene");
     }
 
-    public void LoadHelp()
+    public void LoadHelp1()
     {
         SceneManager.LoadScene("HelpScene");
+    }
+
+    public void LoadHelp2()
+    {
+        SceneManager.LoadScene("HelpScene2");
+    }
+
+    public void LoadHelp3()
+    {
+        SceneManager.LoadScene("HelpScene3");
     }
 
     public void ExitGame()
