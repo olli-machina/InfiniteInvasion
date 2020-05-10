@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         if (shipsLeft <= 0)
         {
-            //SceneManager.LoadScene("EndScreen");
+            SceneManager.LoadScene("EndScreen");
             if (setScore == false)
             {
                 setScore = true;
