@@ -7,6 +7,7 @@ public class ShipRadarScript : MonoBehaviour
     public int threatLevel;
     public GameObject radioBall, messageBorder, message;
     private bool messageReady;
+    private Collider2D enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -46,9 +47,20 @@ public class ShipRadarScript : MonoBehaviour
     {
         if (collision.tag == "Swarm")
         {
+            enemy = collision;
             collision.gameObject.GetComponent<SwarmMovement>().nearColonyShip = true;
             collision.gameObject.GetComponent<SwarmMovement>().colonyShip = gameObject;
             threatLevel += 1;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Swarm")
+        {
+            collision.gameObject.GetComponent<SwarmMovement>().nearColonyShip = false;
+            collision.gameObject.GetComponent<SwarmMovement>().colonyShip = null;
+            threatLevel -= 1;
         }
     }
 }
