@@ -210,7 +210,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 319f972f406f9f746819148ec8dcd23d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13594,6 +13594,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1209298749}
     m_Modifications:
+    - target: {fileID: 4486158068485879112, guid: d51de02c687801a44a6494f768214424,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4486158068485879113, guid: d51de02c687801a44a6494f768214424,
         type: 3}
       propertyPath: m_Name
@@ -13764,6 +13769,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8876887668944028054, guid: 26288cfd4a9573d459e3f236e58ec898,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8876887668944028055, guid: 26288cfd4a9573d459e3f236e58ec898,
         type: 3}
       propertyPath: m_Name
@@ -13782,6 +13792,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d21094b2e058a864b8e0ae414aeea642, type: 2}
+    - target: {fileID: 7370664180343517892, guid: a851ac772fd42b34d996e355dbd26350,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7370664180343517893, guid: a851ac772fd42b34d996e355dbd26350,
         type: 3}
       propertyPath: m_Name
@@ -14176,6 +14191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor2
       objectReference: {fileID: 0}
+    - target: {fileID: 877726971997838093, guid: 2741c7c38971b2d4db1f4515e175f76d,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 877726971997838094, guid: 2741c7c38971b2d4db1f4515e175f76d,
         type: 3}
       propertyPath: m_SortingOrder
@@ -14264,6 +14284,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d21094b2e058a864b8e0ae414aeea642, type: 2}
+    - target: {fileID: 2266075790181317368, guid: 3c5d06f2239ed9c4c9801075554c6ff0,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2266075790181317369, guid: 3c5d06f2239ed9c4c9801075554c6ff0,
         type: 3}
       propertyPath: m_Name

@@ -123,6 +123,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5221602967104861497, guid: caa22e33a9d708f459a9f0bef0c358a7,
+        type: 3}
+      propertyPath: meteorSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5221602967104861498, guid: caa22e33a9d708f459a9f0bef0c358a7,
         type: 3}
       propertyPath: m_Color.r
