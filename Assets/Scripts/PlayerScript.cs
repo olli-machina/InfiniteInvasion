@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
     private bool doubleShot = false, shotgun = false, fullDirectional = false;
-    public GameObject bulletPrefab, UIFD, UIDS, UISG;
+    public GameObject bulletPrefab, UIFD, UIDS, UISG, UIS;
     private GameObject cameraShake;
     Transform fireLocation;
     FireBullet fireRange;
@@ -125,7 +125,8 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator PowerUpTimer(float time, int powerUp)
     {
-        switch(powerUp)
+        UIS.SetActive(false);
+        switch (powerUp)
         {
             case 0:
                 doubleShot = true;
@@ -158,6 +159,7 @@ public class PlayerScript : MonoBehaviour
                 break;
         }
         hasPowerUp = false;
+        UIS.SetActive(true);
     }
 
     public void CheckWeapon()
