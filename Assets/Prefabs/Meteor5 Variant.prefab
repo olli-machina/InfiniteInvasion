@@ -19,7 +19,7 @@ PrefabInstance:
     - target: {fileID: 7370664180343517893, guid: a851ac772fd42b34d996e355dbd26350,
         type: 3}
       propertyPath: m_Name
-      value: Meteor5
+      value: Meteor5 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7370664180343517894, guid: a851ac772fd42b34d996e355dbd26350,
         type: 3}

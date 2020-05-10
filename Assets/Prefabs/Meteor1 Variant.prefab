@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 877726971997838092, guid: 2741c7c38971b2d4db1f4515e175f76d,
         type: 3}
       propertyPath: m_Name
-      value: Meteor1
+      value: Meteor1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 877726971997838094, guid: 2741c7c38971b2d4db1f4515e175f76d,
         type: 3}
@@ -76,6 +76,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877726971997838095, guid: 2741c7c38971b2d4db1f4515e175f76d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877726971997838095, guid: 2741c7c38971b2d4db1f4515e175f76d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877726971997838095, guid: 2741c7c38971b2d4db1f4515e175f76d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 877726972021849329, guid: 2741c7c38971b2d4db1f4515e175f76d,
         type: 3}
