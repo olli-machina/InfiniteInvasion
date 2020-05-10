@@ -1714,7 +1714,7 @@ MonoBehaviour:
   threatLevel: 0
   radioBall: {fileID: 296682133}
   messageBorder: {fileID: 792844935}
-  message: {fileID: 0}
+  message: {fileID: 1278634217}
 --- !u!61 &503233496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4088,7 +4088,7 @@ MonoBehaviour:
   threatLevel: 0
   radioBall: {fileID: 296682133}
   messageBorder: {fileID: 792844935}
-  message: {fileID: 0}
+  message: {fileID: 756102731}
 --- !u!61 &949240472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11294,7 +11294,7 @@ MonoBehaviour:
   threatLevel: 0
   radioBall: {fileID: 296682133}
   messageBorder: {fileID: 792844935}
-  message: {fileID: 0}
+  message: {fileID: 340756808}
 --- !u!61 &1617387155
 BoxCollider2D:
   m_ObjectHideFlags: 0
