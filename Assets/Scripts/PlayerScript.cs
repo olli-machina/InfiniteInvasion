@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
 {
     public float health = 10, maxHealth = 10,
         shotgunTimer, doubleShotTimer, fullDirectionalTimer;
-    private float healTime = 0.0f;
     public GameObject[] healthWedges;
     public GameObject[] damageWedges;
     public GameObject healthOrb;
@@ -51,16 +50,7 @@ public class PlayerScript : MonoBehaviour
 
         if (inRepair)
         {
-            healTime += Time.deltaTime;
             invunerable = true;
-
-            if (healTime >= 0.5f)
-            {
-                healthWedges[(int)health].SetActive(true);
-                damageWedges[(int)health].SetActive(false);
-                health += 1f;
-                healTime = 0.0f;
-            }
         }
 
         if (health >= 10)
