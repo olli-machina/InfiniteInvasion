@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         shipTimer += Time.deltaTime;
         if(spawnTimer >= 5.0f)
         {
+            if (SceneManager.GetActiveScene().name == "SampleScene")
             SpawnSwarm();
             spawnTimer = 0.0f;
         }
@@ -84,10 +85,10 @@ public class GameManager : MonoBehaviour
 
         if (shipsLeft <= 0)
         {
-            SceneManager.LoadScene("EndScreen");
             if (setScore == false)
             {
                 setScore = true;
+                SceneManager.LoadScene("EndScreen");
                 CheckScores();
             }
         }
