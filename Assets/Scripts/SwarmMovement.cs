@@ -9,6 +9,8 @@ public class SwarmMovement : MonoBehaviour
     private Vector3 targetPosition;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;
+    public bool nearColonyShip;
+    public GameObject colonyShip;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class SwarmMovement : MonoBehaviour
         cameraShake = GameObject.Find("Main Camera");
         target = Random.Range(0, 3);
         ship = GameManager.singleton.randShipNumber;
+        nearColonyShip = false;
     }
 
     // Update is called once per frame
@@ -82,6 +85,10 @@ public class SwarmMovement : MonoBehaviour
         {
             player.GetComponent<PlayerScript>().DamageHealth(1);
             cameraShake.GetComponent<CameraShake>().Shake();
+            if (nearColonyShip)
+            {
+                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+            }
             Destroy(gameObject);
         }
         else if (col.tag == "Bullet")
@@ -96,17 +103,29 @@ public class SwarmMovement : MonoBehaviour
             }
 
             ShowPoints();
+            if (nearColonyShip)
+            {
+                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+            }
             Destroy(gameObject);
             Destroy(col);
         }
         else if (col.tag == "Meteor")
         {
+            if (nearColonyShip)
+            {
+                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+            }
             Destroy(gameObject);
         }
         else if (col.tag == "Ship")
         {
             col.GetComponent<ColonyShipScript>().health -= 1;
             col.GetComponent<ColonyShipScript>().UpdateHealth();
+            if (nearColonyShip)
+            {
+                colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
+            }
             Destroy(gameObject);
         }
     }
