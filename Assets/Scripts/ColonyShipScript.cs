@@ -20,8 +20,6 @@ public class ColonyShipScript : MonoBehaviour
         if (health <= 0)
         {
             GameManager.singleton.shipsLeft -= 1;
-            GetComponent<ShipRadarScript>().message.SetActive(false);
-            GetComponent<ShipRadarScript>().messageBorder.SetActive(false);
             Destroy(gameObject);
         }
     }
