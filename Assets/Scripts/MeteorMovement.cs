@@ -56,14 +56,14 @@ public class MeteorMovement : MonoBehaviour
 
     void CheckBounds()
     {
-        if (gameObject.transform.position.x > 61.0f || gameObject.transform.position.x < -58.0)
+        if (gameObject.transform.position.x > 71.0f || gameObject.transform.position.x < -77.0)
         {
             GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);
         }
 
 
-        if (gameObject.transform.position.y > 39.0f || gameObject.transform.position.y < -39.0)
+        if (gameObject.transform.position.y > 50.0f || gameObject.transform.position.y < -50.0)
         {
             GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);

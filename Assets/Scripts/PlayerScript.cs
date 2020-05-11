@@ -12,7 +12,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject healthOrb, laserSounds;
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false, canFire = true;
-    private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false;
+    private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false, meteor = false,
+        repairSound = false;
     public GameObject bulletPrefab, UIFD, UIDS, UISG, UIS;
     private GameObject cameraShake;
     Transform fireLocation;
@@ -109,6 +110,7 @@ public class PlayerScript : MonoBehaviour
         }
         health = 10;
         inRepair = false;
+
     }
 
     public void DamageHealth(float damage)
@@ -134,15 +136,31 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void PlaySound()
+    {
+        if (meteor)
+        {
+            playerEffects.PlayEffect("MeteorHit", false, 1.0f); //play meteor bounce
+            meteor = false;
+        }
+        if (!repairSound)
+        {
+            playerEffects.PlayEffect("Repairing", false, 1.0f); //play repair alert sound
+            repairSound = true;
+        }
+    }
+
     public void ForceRepair()
     {
+        PlaySound();
         GetComponent<PlayerMovement>().enabled = false;
-        playerEffects.PlayEffect("Repair", false, 1.0f); //play repair alert sound
+
         //stop firing
         if(health >= 10)
         {
             inRepair = false;
             GetComponent<PlayerMovement>().enabled = true;
+            repairSound = false;
         }
     }
 
@@ -159,7 +177,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Meteor")
         {
-            playerEffects.PlayEffect("MeteorHit", false, 1.0f); //play meteor bounce
+            meteor = true;
             cameraShake.GetComponent<CameraShake>().Shake();
             if (!invunerable)
             {

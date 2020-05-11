@@ -197,9 +197,9 @@ public class GameManager : MonoBehaviour
     {
         var rL = UnityEngine.Random.Range(0, 2);
         if(rL == 0)
-            position = new Vector3(UnityEngine.Random.Range(-59.0f, -48.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(-76.0f, -60.0f), UnityEngine.Random.Range(-49.0f, 49.0f), 0);
         else
-            position = new Vector3(UnityEngine.Random.Range(62.0f, 52.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(64.0f, 70.0f), UnityEngine.Random.Range(-49.0f, 49.0f), 0);
 
         var meteorSprite = UnityEngine.Random.Range(0, 4);
         if (meteorSprite == 0)

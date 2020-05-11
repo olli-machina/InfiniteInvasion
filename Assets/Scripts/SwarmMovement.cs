@@ -12,6 +12,7 @@ public class SwarmMovement : MonoBehaviour
     public GameObject attackPoints, basicPoints;
     private Transform pointsSpawn;
     public bool nearColonyShip;
+    private bool sound, anim;
     public GameObject colonyShip;
     public Sprite attackPlayer;
     public AnimationClip attackPlayerAnim;
@@ -147,27 +148,39 @@ public class SwarmMovement : MonoBehaviour
     IEnumerator Explosion()
     {
         //anim.Play("Explosion");
-        swarmController.PlayEffect("Explosion", false, 0.25f); //play explosion sound
+        if (sound)
+            swarmController.PlayEffect("Explosion", false, 0.15f); //play explosion sound
+
         gameObject.GetComponents<Collider2D>()[0].enabled = false;
         gameObject.GetComponents<Collider2D>()[1].enabled = false;
-        animController.SetBool("dead", true);
-        yield return new WaitForSeconds(0.5f);
+        if (anim)
+        {
+            animController.SetBool("dead", true);
+            yield return new WaitForSeconds(0.5f);
+        }
+        sound = false;
+        anim = false;
         Destroy(gameObject);
     }
 
     void Player()
     {
+        sound = true;
+        anim = false;
         player.GetComponent<PlayerScript>().DamageHealth(1);
         cameraShake.GetComponent<CameraShake>().Shake();
         if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
         }
-        Destroy(gameObject);
+        StartCoroutine(Explosion());
     }
 
     void Bullet()
     {
+        //swarmController.PlayEffect("Explosion", false, 0.15f); //play explosion sound
+        sound = true;
+        anim = true;
         if (target == 0)
         {
             GameManager.singleton.ChangeScore(25);
@@ -191,6 +204,8 @@ public class SwarmMovement : MonoBehaviour
 
     void Meteor()
     {
+        anim = true;
+        sound = false;
         if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
@@ -200,6 +215,8 @@ public class SwarmMovement : MonoBehaviour
 
     void Ship()
     {
+        anim = true;
+        sound = false;
         if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
