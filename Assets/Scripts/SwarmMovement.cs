@@ -16,6 +16,7 @@ public class SwarmMovement : MonoBehaviour
     public Sprite attackPlayer;
     public AnimationClip attackPlayerAnim;
     public Animator animController;
+    public SoundEffectsController swarmController;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class SwarmMovement : MonoBehaviour
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
         animController = GetComponent<Animator>();
+        //swarmController = GameObject.Find("SwarmController").GetComponent<SoundEffectsController>();
+        swarmController = GetComponent<SoundEffectsController>();
     }
 
     // Update is called once per frame
@@ -53,11 +56,6 @@ public class SwarmMovement : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
         transform.up = targetPosition - transform.position;
-    }
-
-    public void SpreadOut()
-    {
-        
     }
 
     public void ChooseShip()
@@ -150,6 +148,7 @@ public class SwarmMovement : MonoBehaviour
     IEnumerator Explosion()
     {
         //anim.Play("Explosion");
+        swarmController.PlayEffect(5); //play explosion sound
         gameObject.GetComponents<Collider2D>()[0].enabled = false;
         gameObject.GetComponents<Collider2D>()[1].enabled = false;
         animController.SetBool("dead", true);

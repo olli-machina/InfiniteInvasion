@@ -5,6 +5,7 @@ using UnityEngine;
 public class RadioBallScript : MonoBehaviour
 {
     Animator anim;
+    public SoundEffectsController radioController;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class RadioBallScript : MonoBehaviour
     public void IncomingMessage()
     {
         anim.Play("RadioIncoming");
+        radioController.PlayEffect(4); //play radio sound
     }
 
     public void EndMessage()

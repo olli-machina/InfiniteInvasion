@@ -17,12 +17,15 @@ public class PlayerScript : MonoBehaviour
     private GameObject cameraShake;
     Transform fireLocation;
     FireBullet fireRange;
+    public SoundEffectsController playerLaser, playerEffects;
 
     // Start is called before the first frame update
     void Start()
     {
         fireLocation = transform.Find("BulletSpawn");
         cameraShake = GameObject.Find("Main Camera");
+        playerLaser = GameObject.Find("LaserSounds").GetComponent<SoundEffectsController>();
+        playerEffects = GameObject.Find("PlayerSounds").GetComponent<SoundEffectsController>();
         fireRange = GetComponentInChildren<FireBullet>();
         for (int i = 9; i >= 0; i--)
         {
@@ -45,8 +48,12 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 CheckWeapon();
+                playerLaser.PlayEffect(0); //play laser sound
             }
         }
+
+        if (!inRepair)
+            playerEffects.PlayEffect(2); //play engine sound
 
         if (inRepair)
         {
@@ -106,7 +113,7 @@ public class PlayerScript : MonoBehaviour
     public void ForceRepair()
     {
         GetComponent<PlayerMovement>().enabled = false;
-        
+        playerEffects.PlayEffect(3); //play repair alert sound
         //stop firing
         if(health >= 10)
         {
@@ -128,6 +135,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Meteor")
         {
+            playerEffects.PlayEffect(8); //play meteor bounce
             cameraShake.GetComponent<CameraShake>().Shake();
             if (!invunerable)
             {
@@ -209,6 +217,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!hasPowerUp)
         {
+            playerEffects.PlayEffect(1); //play power up sound
             hasPowerUp = true;
             switch (name)
             {

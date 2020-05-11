@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
     private Text scoreText;
+    public SoundEffectsController managerController;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
                     spawnPoint2 = new Vector3(0.58f, -2.74f, 0.0f),
                     spawnPoint3 = new Vector3(0.97f, 0.23f, 0.0f),
@@ -215,6 +216,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSwarm()
     {
+        managerController.PlayEffect(6); //spawn swarm sound
         Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint3, Quaternion.identity, swarmSpawn);
