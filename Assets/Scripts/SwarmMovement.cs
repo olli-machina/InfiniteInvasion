@@ -149,7 +149,9 @@ public class SwarmMovement : MonoBehaviour
     {
         //anim.Play("Explosion");
         if (sound)
+        {
             swarmController.PlayEffect("Explosion", false, 0.15f); //play explosion sound
+        }
 
         gameObject.GetComponents<Collider2D>()[0].enabled = false;
         gameObject.GetComponents<Collider2D>()[1].enabled = false;
@@ -166,14 +168,14 @@ public class SwarmMovement : MonoBehaviour
     void Player()
     {
         sound = true;
-        anim = false;
+        anim = true;
+        StartCoroutine(Explosion());
         player.GetComponent<PlayerScript>().DamageHealth(1);
         cameraShake.GetComponent<CameraShake>().Shake();
         if (nearColonyShip && colonyShip.GetComponent<ShipRadarScript>().threatLevel > 0)
         {
             colonyShip.GetComponent<ShipRadarScript>().threatLevel -= 1;
         }
-        StartCoroutine(Explosion());
     }
 
     void Bullet()

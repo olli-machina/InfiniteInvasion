@@ -3077,6 +3077,7 @@ MonoBehaviour:
   inRepair: 0
   hasPowerUp: 0
   canFire: 1
+  repairSound: 0
   bulletPrefab: {fileID: 6537536777459382359, guid: a1e0a46d0ea4d5242af5ab977ff38946,
     type: 3}
   UIFD: {fileID: 634123850}
@@ -3183,7 +3184,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 57
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

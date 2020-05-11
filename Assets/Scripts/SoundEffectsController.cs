@@ -25,7 +25,7 @@ public class SoundEffectsController : MonoBehaviour
     public void PlayEffect(string id, bool loop, float volume)
     {
         player.volume = volume;
-        for(int i = 0; i < sounds.Length-1; i++)
+        for(int i = 0; i < sounds.Length; i++)
         {
             if (sounds[i].name == id)
             {
