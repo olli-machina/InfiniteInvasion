@@ -61,6 +61,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+
+        }
+
         //if (!inRepair)
         //{
         //    playerEffects.PlayEffect("PlayerEngine", true); //play engine sound
