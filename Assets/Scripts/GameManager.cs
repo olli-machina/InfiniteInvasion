@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     Vector3 position;
     private int itemCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4, itemMaxCounter = 0;
-    private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
+    public float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
     private Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
@@ -58,11 +58,11 @@ public class GameManager : MonoBehaviour
         meteorSpawn = MeteorParent.transform;
         randomTime = UnityEngine.Random.Range(0, 2);
         if(randomTime == 0)
-            randShipDuration = 60f;
+            randShipDuration = 15f;
         else
             randShipDuration = 30f;
 
-        randShipNumber = 0;
+        randShipNumber = UnityEngine.Random.Range(0, 4);
 
         LoadScores();
     }
@@ -89,12 +89,19 @@ public class GameManager : MonoBehaviour
         if(shipTimer >= randShipDuration)
         {
             randomTime = UnityEngine.Random.Range(0, 2);
+            int tempShip;
+
             if (randomTime == 0)
                 randShipDuration = 15.0f;
             else
                 randShipDuration = 30.0f;
+            do
+            {
+                tempShip = UnityEngine.Random.Range(0, 4);
+            } while (tempShip == randShipNumber);
 
-            randShipNumber = UnityEngine.Random.Range(0, 4);
+            randShipNumber = tempShip;
+
             shipTimer = 0.0f;
         }
 
