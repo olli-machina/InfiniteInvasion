@@ -50,17 +50,17 @@ public class PlayerScript : MonoBehaviour
                 if (canFire)
                 {
                     CheckWeapon();
-                    playerLaser.PlayEffect("Laser", false); //play laser sound
+                    playerLaser.PlayEffect("Laser", false, 0.5f); //play laser sound
                     canFire = false;
                     StartCoroutine(ShotCooldown());
                 }
             }
         }
 
-        if (!inRepair)
-        {
-            playerEffects.PlayEffect("PlayerEngine", true); //play engine sound
-        }
+        //if (!inRepair)
+        //{
+        //    playerEffects.PlayEffect("PlayerEngine", true); //play engine sound
+        //}
 
         if (inRepair)
         {
@@ -126,7 +126,7 @@ public class PlayerScript : MonoBehaviour
     public void ForceRepair()
     {
         GetComponent<PlayerMovement>().enabled = false;
-        //playerEffects.PlayEffect(3); //play repair alert sound
+        playerEffects.PlayEffect("Repair", false, 1.0f); //play repair alert sound
         //stop firing
         if(health >= 10)
         {
@@ -148,7 +148,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Meteor")
         {
-            //playerEffects.PlayEffect(8); //play meteor bounce
+            playerEffects.PlayEffect("MeteorHit", false, 1.0f); //play meteor bounce
             cameraShake.GetComponent<CameraShake>().Shake();
             if (!invunerable)
             {
@@ -230,7 +230,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!hasPowerUp)
         {
-            //playerEffects.PlayEffect(1); //play power up sound
+            playerEffects.PlayEffect("Power-Ups", false, 1.0f); //play power up sound
             hasPowerUp = true;
             switch (name)
             {

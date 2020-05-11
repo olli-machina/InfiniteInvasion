@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSwarm()
     {
-        //managerController.PlayEffect("EnemySpawn"); //spawn swarm sound
+        //managerController.PlayEffect("EnemySpawn", false, 1.0f); //spawn swarm sound
         Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint3, Quaternion.identity, swarmSpawn);

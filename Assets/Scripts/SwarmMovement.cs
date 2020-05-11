@@ -32,7 +32,6 @@ public class SwarmMovement : MonoBehaviour
         ship = GameManager.singleton.randShipNumber;
         nearColonyShip = false;
         animController = GetComponent<Animator>();
-        //swarmController = GameObject.Find("SwarmController").GetComponent<SoundEffectsController>();
         swarmController = GetComponent<SoundEffectsController>();
     }
 
@@ -148,7 +147,7 @@ public class SwarmMovement : MonoBehaviour
     IEnumerator Explosion()
     {
         //anim.Play("Explosion");
-        //swarmController.PlayEffect(5); //play explosion sound
+        swarmController.PlayEffect("Explosion", false, 0.25f); //play explosion sound
         gameObject.GetComponents<Collider2D>()[0].enabled = false;
         gameObject.GetComponents<Collider2D>()[1].enabled = false;
         animController.SetBool("dead", true);

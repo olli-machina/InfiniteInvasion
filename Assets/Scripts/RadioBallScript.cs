@@ -10,8 +10,8 @@ public class RadioBallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         radioController = GetComponent<SoundEffectsController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class RadioBallScript : MonoBehaviour
 
     public void IncomingMessage()
     {
-        radioController.PlayEffect("Radio", false); //play radio sound
+        radioController.PlayEffect("Radio", false, 0.5f); //play radio sound
         anim.Play("RadioIncoming");
     }
 
