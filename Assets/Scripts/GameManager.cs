@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     Vector3 position;
     private int itemCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4, itemMaxCounter = 0;
-    public float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
+    private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
     private Text scoreText;
     public Vector3 spawnPoint1 = new Vector3(1.9f, -1.72f, 0.0f),
