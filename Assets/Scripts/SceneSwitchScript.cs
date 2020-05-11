@@ -27,6 +27,11 @@ public class SceneSwitchScript : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void LoadStory()
+    {
+        SceneManager.LoadScene("StarScrollScene");
+    }
+
     public void LoadCredits()
     {
         SceneManager.LoadScene("CreditsScreen");
