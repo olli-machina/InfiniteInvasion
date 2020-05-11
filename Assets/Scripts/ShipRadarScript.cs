@@ -22,6 +22,11 @@ public class ShipRadarScript : MonoBehaviour
         {
             StartCoroutine(MessageIncoming());
         }
+        if (GetComponentInParent<ColonyShipScript>().health <= 1)
+        {
+            StopCoroutine(MessageIncoming());
+            message.SetActive(false);
+        }
     }
 
     IEnumerator MessageIncoming()
@@ -29,7 +34,7 @@ public class ShipRadarScript : MonoBehaviour
         radioBall.GetComponent<RadioBallScript>().IncomingMessage();
         messageBorder.SetActive(true);
         message.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.5f);
         radioBall.GetComponent<RadioBallScript>().EndMessage();
         messageBorder.SetActive(false);
         message.SetActive(false);
