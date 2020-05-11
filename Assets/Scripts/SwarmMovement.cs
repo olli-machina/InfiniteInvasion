@@ -42,7 +42,6 @@ public class SwarmMovement : MonoBehaviour
             animController.SetBool("Player", true);
             targetPosition = player.transform.position;
             gameObject.GetComponent<SpriteRenderer>().sprite = attackPlayer;
-            Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite.name);
             gameObject.GetComponent<Animation>().clip = attackPlayerAnim;
         }
         else //ship is target
