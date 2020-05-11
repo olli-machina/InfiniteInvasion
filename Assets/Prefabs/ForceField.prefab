@@ -75,7 +75,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 675a2744794ea504796ce6d76849d7ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.95, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf28e2c4f7fabe4ea343abeaefe15d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteor: {fileID: 0}
+  ship: {fileID: 0}

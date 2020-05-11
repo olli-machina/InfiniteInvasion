@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ForceFieldScript : MonoBehaviour
 {
-    public Transform meteor;
+    public Transform ship;
     Animator anim;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class ForceFieldScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.up = meteor.transform.position - transform.position;
+        transform.up = ship.transform.position - transform.position;
     }
 
     void DestroyForceField()

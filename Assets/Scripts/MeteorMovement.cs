@@ -81,7 +81,7 @@ public class MeteorMovement : MonoBehaviour
         else if (col.gameObject.tag == "Ship")
         {
             GameObject spawnedField = (GameObject)Instantiate(forceField, transform.position, Quaternion.identity);
-            spawnedField.GetComponent<ForceFieldScript>().meteor = gameObject.GetComponent<Transform>();
+            spawnedField.GetComponent<ForceFieldScript>().ship = col.gameObject.GetComponent<Transform>();
             flipped = !flipped;
         }
 
