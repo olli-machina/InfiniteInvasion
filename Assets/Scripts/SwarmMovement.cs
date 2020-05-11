@@ -39,6 +39,7 @@ public class SwarmMovement : MonoBehaviour
         float step = moveSpeed * Time.deltaTime;
         if (target == 0) //player is target
         {
+            animController.SetBool("Player", true);
             targetPosition = player.transform.position;
             gameObject.GetComponent<SpriteRenderer>().sprite = attackPlayer;
             Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite.name);
@@ -150,6 +151,8 @@ public class SwarmMovement : MonoBehaviour
     IEnumerator Explosion()
     {
         //anim.Play("Explosion");
+        gameObject.GetComponents<Collider2D>()[0].enabled = false;
+        gameObject.GetComponents<Collider2D>()[1].enabled = false;
         animController.SetBool("dead", true);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);

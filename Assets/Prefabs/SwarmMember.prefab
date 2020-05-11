@@ -108,7 +108,7 @@ MonoBehaviour:
   nearColonyShip: 0
   colonyShip: {fileID: 0}
   attackPlayer: {fileID: 21300000, guid: b0fa59881d0304947b00d92df55abb06, type: 3}
-  attackPlayerAnim: {fileID: 7400000, guid: 739d5bb7c13c96f4f882566697454b77, type: 2}
+  attackPlayerAnim: {fileID: 7400000, guid: 6cc60e2fdd77485428d720d9190b2caf, type: 2}
   animController: {fileID: 0}
 --- !u!61 &311431835854272904
 BoxCollider2D:
@@ -202,7 +202,9 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 6cc60e2fdd77485428d720d9190b2caf, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 739d5bb7c13c96f4f882566697454b77, type: 2}
+  - {fileID: 7400000, guid: 6cc60e2fdd77485428d720d9190b2caf, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
