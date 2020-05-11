@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CreditsScreen.unity
     guid: 67846c644b24d0248a966d8dcf99f35e
   - enabled: 1
+    path: Assets/Scenes/HelpScene4.unity
+    guid: 41317ddfa5bf2944794e7d5383730ad9
+  - enabled: 1
     path: Assets/Scenes/HelpScene3.unity
     guid: c8aa35f5a7fa1894e99e50cd8610f91e
   - enabled: 1

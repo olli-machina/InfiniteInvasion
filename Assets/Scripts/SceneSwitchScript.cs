@@ -52,6 +52,11 @@ public class SceneSwitchScript : MonoBehaviour
         SceneManager.LoadScene("HelpScene3");
     }
 
+    public void LoadHelp4()
+    {
+        SceneManager.LoadScene("HelpScene4");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
