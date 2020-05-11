@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             randShipDuration = 30f;
 
         randShipNumber = UnityEngine.Random.Range(0, 4);
-
+        managerController = GetComponent<SoundEffectsController>();
         LoadScores();
     }
 
@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnSwarm()
     {
-        managerController.PlayEffect(6); //spawn swarm sound
+        //managerController.PlayEffect("EnemySpawn"); //spawn swarm sound
         Instantiate(SwarmMember, spawnPoint1, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint2, Quaternion.identity, swarmSpawn);
         Instantiate(SwarmMember, spawnPoint3, Quaternion.identity, swarmSpawn);

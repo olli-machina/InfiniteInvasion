@@ -148,7 +148,7 @@ public class SwarmMovement : MonoBehaviour
     IEnumerator Explosion()
     {
         //anim.Play("Explosion");
-        swarmController.PlayEffect(5); //play explosion sound
+        //swarmController.PlayEffect(5); //play explosion sound
         gameObject.GetComponents<Collider2D>()[0].enabled = false;
         gameObject.GetComponents<Collider2D>()[1].enabled = false;
         animController.SetBool("dead", true);

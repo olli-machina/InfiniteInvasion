@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SoundEffectsController : MonoBehaviour
 {
-    public AudioClip[] sounds;
+    private AudioClip[] sounds;
     AudioSource player;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<AudioSource>();
-        //for(int i = 0; i < )
-        //sounds = Resources.Load<AudioClip>[]("Sounds");
+        sounds = Resources.LoadAll<AudioClip>("SoundEffects");
+
+        Resources.UnloadUnusedAssets();
     }
 
     // Update is called once per frame
@@ -21,22 +22,53 @@ public class SoundEffectsController : MonoBehaviour
         
     }
 
-    public void PlayEffect(int id)
+    public void PlayEffect(string id, bool loop)
     {
-        player.clip = sounds[id];
-        player.Play();
+        for(int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == id)
+            {
+                player.clip = sounds[i];
+
+                if (loop)
+                {
+                    player.loop = true;
+                    player.Play();
+                }
+                else
+                {
+                    player.loop = false;
+                    player.Play();
+                }
+                break;
+            }
+        }
+
+    }
+
+    public void StopEffect(string id)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == id)
+            {
+                player.clip = sounds[i];
+                player.Stop();
+                break;
+            }
+        }
     }
 
 }
 
 /*Sound Effect List:
- * 0 - Laser
- * 1 - power up
- * 2 - player engine
- * 3 - repair needed alert
- * 4 - radio
- * 5 - Explosion
- * 6 - Enemy spawn
- * 7 - Button press 
- * 8 - meteor hit player
+ * 0 - ButtonPress
+ * 1 - EnemySpawn
+ * 2 - Explosion
+ * 3 - Laser
+ * 4 - MeteorHit
+ * 5 - PlayerEngine
+ * 6 - Power-Ups
+ * 7 - Radio
+ * 8 - Repairing
  * */

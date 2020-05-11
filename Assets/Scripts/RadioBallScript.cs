@@ -11,6 +11,7 @@ public class RadioBallScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        radioController = GetComponent<SoundEffectsController>();
     }
 
     // Update is called once per frame
@@ -21,12 +22,13 @@ public class RadioBallScript : MonoBehaviour
 
     public void IncomingMessage()
     {
+        radioController.PlayEffect("Radio", false); //play radio sound
         anim.Play("RadioIncoming");
-        radioController.PlayEffect(4); //play radio sound
     }
 
     public void EndMessage()
     {
         anim.Play("RadioDefault");
+        radioController.StopEffect("Radio");
     }
 }

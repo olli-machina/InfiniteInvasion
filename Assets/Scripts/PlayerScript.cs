@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
         shotgunTimer, doubleShotTimer, fullDirectionalTimer;
     public GameObject[] healthWedges;
     public GameObject[] damageWedges;
-    public GameObject healthOrb;
+    public GameObject healthOrb, laserSounds;
     public GameObject damageOrb;
     public bool inRepair = false, hasPowerUp = false;
     private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false;
@@ -24,8 +24,8 @@ public class PlayerScript : MonoBehaviour
     {
         fireLocation = transform.Find("BulletSpawn");
         cameraShake = GameObject.Find("Main Camera");
-        playerLaser = GameObject.Find("LaserSounds").GetComponent<SoundEffectsController>();
-        playerEffects = GameObject.Find("PlayerSounds").GetComponent<SoundEffectsController>();
+        playerLaser = laserSounds.GetComponent<SoundEffectsController>();
+        playerEffects = GetComponent<SoundEffectsController>();
         fireRange = GetComponentInChildren<FireBullet>();
         for (int i = 9; i >= 0; i--)
         {
@@ -48,12 +48,14 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 CheckWeapon();
-                playerLaser.PlayEffect(0); //play laser sound
+                playerLaser.PlayEffect("Laser", false); //play laser sound
             }
         }
 
         if (!inRepair)
-            playerEffects.PlayEffect(2); //play engine sound
+        {
+            playerEffects.PlayEffect("PlayerEngine", true); //play engine sound
+        }
 
         if (inRepair)
         {
@@ -113,7 +115,7 @@ public class PlayerScript : MonoBehaviour
     public void ForceRepair()
     {
         GetComponent<PlayerMovement>().enabled = false;
-        playerEffects.PlayEffect(3); //play repair alert sound
+        //playerEffects.PlayEffect(3); //play repair alert sound
         //stop firing
         if(health >= 10)
         {
@@ -135,7 +137,7 @@ public class PlayerScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Meteor")
         {
-            playerEffects.PlayEffect(8); //play meteor bounce
+            //playerEffects.PlayEffect(8); //play meteor bounce
             cameraShake.GetComponent<CameraShake>().Shake();
             if (!invunerable)
             {
@@ -217,7 +219,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!hasPowerUp)
         {
-            playerEffects.PlayEffect(1); //play power up sound
+            //playerEffects.PlayEffect(1); //play power up sound
             hasPowerUp = true;
             switch (name)
             {
