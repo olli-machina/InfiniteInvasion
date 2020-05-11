@@ -75,7 +75,7 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator ShotCooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
         canFire = true;
     }
 
