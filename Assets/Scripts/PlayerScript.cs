@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject[] damageWedges;
     public GameObject healthOrb, laserSounds;
     public GameObject damageOrb;
-    public bool inRepair = false, hasPowerUp = false;
+    public bool inRepair = false, hasPowerUp = false, canFire = true;
     private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false;
     public GameObject bulletPrefab, UIFD, UIDS, UISG, UIS;
     private GameObject cameraShake;
@@ -47,8 +47,13 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                CheckWeapon();
-                playerLaser.PlayEffect("Laser", false); //play laser sound
+                if (canFire)
+                {
+                    CheckWeapon();
+                    playerLaser.PlayEffect("Laser", false); //play laser sound
+                    canFire = false;
+                    StartCoroutine(ShotCooldown());
+                }
             }
         }
 
@@ -66,6 +71,12 @@ public class PlayerScript : MonoBehaviour
         {
             SetFixed();
         }
+    }
+
+    IEnumerator ShotCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canFire = true;
     }
 
     public void SetFixed()
