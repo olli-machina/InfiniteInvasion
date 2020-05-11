@@ -24,12 +24,12 @@ public class MeteorMovement : MonoBehaviour
         if(gameObject.transform.position.x > 0.0f)
             xMove = (Random.Range(0.5f, -5.0f)) * meteorSpeed;
         else if(gameObject.transform.position.x < 0.0f)
-            xMove = (Random.Range(5.0f, 0.0f)) * meteorSpeed;
+            xMove = (Random.Range(5.0f, 1.0f)) * meteorSpeed;
 
         if(gameObject.transform.position.y > 33.0f)
-            yMove = (Random.Range(0.5f, -5.0f)) * meteorSpeed;
+            yMove = (Random.Range(0.5f, -0.5f)) * meteorSpeed;
         else if (gameObject.transform.position.y < 33.0f)
-            yMove = (Random.Range(5.0f, 0.0f)) * meteorSpeed;
+            yMove = (Random.Range(5.0f, 0.5f)) * meteorSpeed;
     }
 
     // Update is called once per frame
@@ -56,14 +56,14 @@ public class MeteorMovement : MonoBehaviour
 
     void CheckBounds()
     {
-        if (gameObject.transform.position.x > 38.0f || gameObject.transform.position.x < -42.0)
+        if (gameObject.transform.position.x > 61.0f || gameObject.transform.position.x < -58.0)
         {
             GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);
         }
 
 
-        if (gameObject.transform.position.y > 32.0f || gameObject.transform.position.y < -32.0)
+        if (gameObject.transform.position.y > 39.0f || gameObject.transform.position.y < -39.0)
         {
             GameManager.singleton.SpawnMeteor();
             Destroy(gameObject);

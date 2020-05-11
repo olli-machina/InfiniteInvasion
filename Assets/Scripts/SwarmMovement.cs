@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SwarmMovement : MonoBehaviour
 {
     public float moveSpeed, turnSpeed;
-    private int target, ship, powerUpLimit = 5;
+    private int target, ship;
     private Vector3 targetPosition;
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;

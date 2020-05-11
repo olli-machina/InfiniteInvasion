@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         shotgun, doubleshot, fulldirectional, instantFix, gameOver1, gameOver2;
     Transform swarmSpawn, meteorSpawn;
     Vector3 position;
-    private int shipCounter = 0, itemCounter = 0;
+    private int itemCounter = 0;
     public int score, randShipNumber = 0, randomTime, shipsLeft = 4, itemMaxCounter = 0;
     private float spawnTimer = 0.0f, shipTimer = 0.0f, randShipDuration = 20.0f, spawnRate = 4.0f, setSpawnTimer = 0.0f;
     private GameObject scoreTextObject;
@@ -189,9 +189,9 @@ public class GameManager : MonoBehaviour
     {
         var rL = UnityEngine.Random.Range(0, 2);
         if(rL == 0)
-            position = new Vector3(UnityEngine.Random.Range(-41.0f, -32.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(-59.0f, -48.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
         else
-            position = new Vector3(UnityEngine.Random.Range(32.0f, 37.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
+            position = new Vector3(UnityEngine.Random.Range(62.0f, 52.0f), UnityEngine.Random.Range(-31.0f, 31.0f), 0);
 
         var meteorSprite = UnityEngine.Random.Range(0, 4);
         if (meteorSprite == 0)
