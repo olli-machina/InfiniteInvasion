@@ -18,6 +18,10 @@ public class PlayerScript : MonoBehaviour
     Transform fireLocation;
     FireBullet fireRange;
     public SoundEffectsController playerLaser, playerEffects;
+    public Text powerupTimer;
+    public bool timerOn;
+    public float powerupTime;
+    public int displayTime, powerUpDuration;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +74,13 @@ public class PlayerScript : MonoBehaviour
         if (health >= 10)
         {
             SetFixed();
+        }
+
+        if(timerOn)
+        {
+            powerupTime -= Time.deltaTime;
+            displayTime = (int)powerupTime;
+            powerupTimer.text = displayTime.ToString();
         }
     }
 
@@ -168,6 +179,9 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator PowerUpTimer(float time, int powerUp)
     {
+        timerOn = true;
+        powerupTime = time;
+        Debug.Log(powerUpDuration + "should be" + powerUp);
         UIS.SetActive(false);
         switch (powerUp)
         {
@@ -203,6 +217,7 @@ public class PlayerScript : MonoBehaviour
         }
         hasPowerUp = false;
         UIS.SetActive(true);
+        timerOn = false;
     }
 
     public void CheckWeapon()
