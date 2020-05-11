@@ -7,11 +7,14 @@ public class MusicController : MonoBehaviour
 {
     public AudioClip start, gameplay;
     private AudioSource listener;
+    private bool menuBool = false, gameplayBool = false;
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         listener = GetComponent<AudioSource>();
+        menuBool = true;
     }
 
     // Update is called once per frame
@@ -20,14 +23,24 @@ public class MusicController : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if(scene.name == "SampleScene")
         {
-            listener.clip = gameplay;
-            listener.Play();
+            if (gameplayBool == true)
+            {
+                listener.clip = gameplay;
+                listener.Play();
+                gameplayBool = false;
+                menuBool = true;
+            }
         }
 
         else
         {
-            listener.clip = start;
-            listener.Play();
+            if(menuBool == true)
+            {
+                listener.clip = start;
+                listener.Play();
+                menuBool = false;
+                gameplayBool = true;
+            }
         }
     }
 }
