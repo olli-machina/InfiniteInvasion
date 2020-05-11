@@ -11,8 +11,8 @@ public class SwarmMovement : MonoBehaviour
     private GameObject player, ship1, ship2, ship3, ship4, cameraShake;
     public GameObject attackPoints, basicPoints;
     private Transform pointsSpawn;
-    public bool nearColonyShip, sound;
-    private bool anim;
+    public bool nearColonyShip;
+    private bool anim, sound;
     public GameObject colonyShip;
     public Sprite attackPlayer;
     public AnimationClip attackPlayerAnim;
