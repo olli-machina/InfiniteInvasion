@@ -29,7 +29,7 @@ public class SceneSwitchScript : MonoBehaviour
 
     public void LoadCredits()
     {
-        SceneManager.LoadScene("CreditsScene");
+        SceneManager.LoadScene("CreditsScreen");
     }
 
     public void LoadHelp1()
