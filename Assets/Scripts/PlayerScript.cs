@@ -142,8 +142,9 @@ public class PlayerScript : MonoBehaviour
         {
             playerEffects.PlayEffect("MeteorHit", false, 1.0f); //play meteor bounce
             meteor = false;
+            repairSound = true;
         }
-        if (!repairSound)
+        else if (!repairSound)
         {
             playerEffects.PlayEffect("Repairing", false, 1.0f); //play repair alert sound
             repairSound = true;
