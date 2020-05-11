@@ -11,9 +11,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject[] damageWedges;
     public GameObject healthOrb, laserSounds;
     public GameObject damageOrb;
-    public bool inRepair = false, hasPowerUp = false, canFire = true;
-    private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false, meteor = false,
-        repairSound = false;
+    public bool inRepair = false, hasPowerUp = false, canFire = true, repairSound = false;
+    private bool doubleShot = false, shotgun = false, fullDirectional = false, invunerable = false, meteor = false;
     public GameObject bulletPrefab, UIFD, UIDS, UISG, UIS;
     private GameObject cameraShake;
     Transform fireLocation;
@@ -95,6 +94,7 @@ public class PlayerScript : MonoBehaviour
     {
         health = 10;
         inRepair = false;
+        repairSound = false;
         invunerable = false;
         GetComponent<PlayerMovement>().enabled = true;
         healthOrb.SetActive(true);
@@ -158,9 +158,9 @@ public class PlayerScript : MonoBehaviour
         //stop firing
         if(health >= 10)
         {
+            repairSound = false;
             inRepair = false;
             GetComponent<PlayerMovement>().enabled = true;
-            repairSound = false;
         }
     }
 
