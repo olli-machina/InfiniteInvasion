@@ -14,7 +14,7 @@ public class SwarmMovement : MonoBehaviour
     public bool nearColonyShip;
     public GameObject colonyShip;
     public Sprite attackPlayer;
-    //public Animation anim;
+    public AnimationClip attackPlayerAnim;
     public Animator animController;
 
     // Start is called before the first frame update
@@ -41,6 +41,8 @@ public class SwarmMovement : MonoBehaviour
         {
             targetPosition = player.transform.position;
             gameObject.GetComponent<SpriteRenderer>().sprite = attackPlayer;
+            Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite.name);
+            gameObject.GetComponent<Animation>().clip = attackPlayerAnim;
         }
         else //ship is target
         {
