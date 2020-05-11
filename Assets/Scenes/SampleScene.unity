@@ -3608,7 +3608,7 @@ MonoBehaviour:
   xBounds: 20
   yBounds: 20
   moveSpeed: 5
-  minBounds: {x: -42, y: -23.9}
+  minBounds: {x: -42, y: -23.6}
   maxBounds: {x: 42, y: 23.9}
   pm: {x: 0, y: 0}
 --- !u!4 &783812346
